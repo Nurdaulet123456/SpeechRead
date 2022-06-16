@@ -1,9 +1,16 @@
+// CSS
+import './App.css'
+import '../../index.css'
+
+// Other Files and Hooks
+import Main from '../main/Main';
+
 
 function App() {
   return (
-    <div className="App">
-      ads
-    </div>
+   <>
+    <Main />
+   </>
   );
 }
 
