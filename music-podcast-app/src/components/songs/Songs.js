@@ -54,17 +54,6 @@ const Songs = () => {
                  <p>Single Album</p>
                  <p>4:17</p>
             </div>
-
-            <div className="musics">
-                 <div className="music__img">
-                    <img className='img' src="https://via.placeholder.com/45x45" alt="" />
-                    <h3>01</h3>
-                 </div>
-                 <p>Faded-Alan Walker</p>
-                 <p>Single Album</p>
-                 <p>4:17</p>
-            </div>
-
             <div className="musics">
                  <div className="music__img">
                     <img className='img' src="https://via.placeholder.com/45x45" alt="" />
