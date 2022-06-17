@@ -19,9 +19,13 @@
 
 .albums__block {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     margin-bottom: 5rem;
+}
+.block {
+    margin-bottom: 1rem;
 }
 
 .block > img {

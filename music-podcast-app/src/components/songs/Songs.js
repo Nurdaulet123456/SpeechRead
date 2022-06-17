@@ -1,6 +1,7 @@
 // CSS
 
 import './Songs.css'
+import Play from '../../img/icon/play.png';
 
 // Import Other Files
 
@@ -44,6 +45,7 @@ const Songs = () => {
                  <p>Faded-Alan Walker</p>
                  <p>Single Album</p>
                  <p>4:17</p>
+                 <a href="#"><img src={Play} alt="" style={{width: '18px'}}/></a>
             </div>
             
             <div className="musics">
@@ -54,6 +56,7 @@ const Songs = () => {
                  <p>Faded-Alan Walker</p>
                  <p>Single Album</p>
                  <p>4:17</p>
+                 <a href="#"><img src={Play} alt="" style={{width: '18px'}}/></a>
             </div>
             <div className="musics">
                  <div className="music__img">
@@ -63,6 +66,7 @@ const Songs = () => {
                  <p>Faded-Alan Walker</p>
                  <p>Single Album</p>
                  <p>4:17</p>
+                 <a href="#"><img src={Play} alt="" style={{width: '18px'}}/></a>
             </div>
         </div>
     );
