@@ -1,5 +1,20 @@
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgb(33, 33, 33, .4);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #0e1121;
 }
 
 body {
@@ -34,7 +49,7 @@ p {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #5A5C6C;
 }
 
 ol, ul, li {

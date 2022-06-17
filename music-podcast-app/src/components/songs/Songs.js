@@ -6,6 +6,7 @@ import './Songs.css'
 
 
 const Songs = () => {
+    // const {id, } = props
     return (
         <div className="songs">
             <h1 className="songs__title">Songs</h1>

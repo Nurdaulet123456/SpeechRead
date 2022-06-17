@@ -1,15 +1,103 @@
 // CSS
 import "./SideBar.css";
 import "../../index.css";
-
+import Podcast from "../../img/icon/mic.png";
+import Play from "../../img/icon/play.png";
+import Discover from "../../img/icon/compass.png";
+import AddPlayList from "../../img/icon/add.png";
 // Import other files
 
 const SideBar = () => {
   return (
     <div className="sideBar">
-        sasd
+      <div className="registration">
+        <img
+          className="registration__img"
+          src="https://via.placeholder.com/40x40"
+          alt=""
+        />
+        <a href="#" className="login">
+          Login
+        </a>
+      </div>
+
+      <div className="menu">
+        <nav className="nav">
+          <div className="nav__flex">
+            <img src={Podcast} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Podcast
+            </a>
+          </div>
+          <div className="nav__flex">
+            <img src={Play} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Videos
+            </a>
+          </div>
+          <div className="nav__flex" style={{ marginBottom: "0" }}>
+            <img src={Discover} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Discover
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <div className="music">
+        <h1 className="nav__title">Your Music</h1>
+        <nav className="nav">
+          <div className="nav__flex">
+            <img src={Podcast} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Podcast
+            </a>
+          </div>
+          <div className="nav__flex">
+            <img src={Play} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Videos
+            </a>
+          </div>
+          <div className="nav__flex" style={{ marginBottom: "0" }}>
+            <img src={Discover} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Discover
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <div className="playlist">
+        <div className="title__flex">
+          <h1 className="nav__title">Your PlayList</h1>
+          <a href="#">
+            <img src={AddPlayList} alt="" style={{ width: "18px" }} />
+          </a>
+        </div>
+        <nav className="nav">
+          <div className="nav__flex">
+            <img src={Podcast} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Podcast
+            </a>
+          </div>
+          <div className="nav__flex">
+            <img src={Play} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Videos
+            </a>
+          </div>
+          <div className="nav__flex" style={{ marginBottom: "0" }}>
+            <img src={Discover} alt="" style={{ width: "18px" }} />
+            <a href="" className="nav__link">
+              Discover
+            </a>
+          </div>
+        </nav>
+      </div>
     </div>
-  )
+  );
 };
 
 export default SideBar;
