@@ -1,11 +1,11 @@
-.songs {
+.songs, .albums {
     width: 100%;
     padding-top: 27px;
     padding-left: 279px;
     padding-right: 30px;
 }  
 
-.songs__title {
+.title {
     font-size: 3.3rem;
     margin-bottom: 6rem;
 }

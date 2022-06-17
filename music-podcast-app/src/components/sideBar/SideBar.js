@@ -1,11 +1,16 @@
 // CSS
 import "./SideBar.css";
 import "../../index.css";
+
+// Import other files
+
 import Podcast from "../../img/icon/mic.png";
 import Play from "../../img/icon/play.png";
 import Discover from "../../img/icon/compass.png";
 import AddPlayList from "../../img/icon/add.png";
-// Import other files
+import HeadPhones from "../../img/icon/headphone-symbol.png";
+import Artist from "../../img/icon/artist.png";
+import PlayList from "../../img/icon/playlist.png";
 
 const SideBar = () => {
   return (
@@ -16,7 +21,7 @@ const SideBar = () => {
           src="https://via.placeholder.com/40x40"
           alt=""
         />
-        <a href="#" className="login">
+        <a href="google.com" className="login">
           Login
         </a>
       </div>
@@ -25,19 +30,19 @@ const SideBar = () => {
         <nav className="nav">
           <div className="nav__flex">
             <img src={Podcast} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
+            <a href="google.com" className="nav__link">
               Podcast
             </a>
           </div>
           <div className="nav__flex">
             <img src={Play} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
+            <a href="google.com" className="nav__link">
               Videos
             </a>
           </div>
           <div className="nav__flex" style={{ marginBottom: "0" }}>
             <img src={Discover} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
+            <a href="google.com" className="nav__link">
               Discover
             </a>
           </div>
@@ -48,21 +53,21 @@ const SideBar = () => {
         <h1 className="nav__title">Your Music</h1>
         <nav className="nav">
           <div className="nav__flex">
-            <img src={Podcast} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Podcast
+            <img src={HeadPhones} alt="" style={{ width: "18px" }} />
+            <a href="google.com" className="nav__link">
+              Songs
             </a>
           </div>
           <div className="nav__flex">
             <img src={Play} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Videos
+            <a href="google.com" className="nav__link">
+              Albums
             </a>
           </div>
           <div className="nav__flex" style={{ marginBottom: "0" }}>
-            <img src={Discover} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Discover
+            <img src={Artist} alt="" style={{ width: "18px" }} />
+            <a href="google.com" className="nav__link">
+              Artist
             </a>
           </div>
         </nav>
@@ -71,27 +76,21 @@ const SideBar = () => {
       <div className="playlist">
         <div className="title__flex">
           <h1 className="nav__title">Your PlayList</h1>
-          <a href="#">
+          <a href="google.com">
             <img src={AddPlayList} alt="" style={{ width: "18px" }} />
           </a>
         </div>
         <nav className="nav">
           <div className="nav__flex">
-            <img src={Podcast} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Podcast
+            <img src={PlayList} alt="" style={{ width: "10px" }} />
+            <a href="google.com" className="nav__link">
+              Foverites
             </a>
           </div>
           <div className="nav__flex">
-            <img src={Play} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Videos
-            </a>
-          </div>
-          <div className="nav__flex" style={{ marginBottom: "0" }}>
-            <img src={Discover} alt="" style={{ width: "18px" }} />
-            <a href="" className="nav__link">
-              Discover
+            <img src={PlayList} alt="" style={{ width: "10px" }} />
+            <a href="google.com" className="nav__link">
+              New Vibes
             </a>
           </div>
         </nav>
