@@ -6,9 +6,8 @@ import '../songs/Songs.css'
 const AlbumsItem = () => {
   return (
     <>
-    <h1 className="title">Songs</h1>
+    <h1 className="title">Albums</h1>
       <div>asdasd</div>
-      <div>asd</div>
     </>
   );
 };

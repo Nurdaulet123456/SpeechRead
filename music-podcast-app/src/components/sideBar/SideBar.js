@@ -11,8 +11,42 @@ import AddPlayList from "../../img/icon/add.png";
 import HeadPhones from "../../img/icon/headphone-symbol.png";
 import Artist from "../../img/icon/artist.png";
 import PlayList from "../../img/icon/playlist.png";
+import {useState, useEffect} from 'react'
+// import useAuth from "../Hooks/useAuth";
 
-const SideBar = () => {
+function SideBar () {
+
+  const CLIENT_ID = "b39c9c2f4fa346a69e4cdbcafefd5185"
+  const REDIRECT_URI = "http://localhost:3000"
+  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
+  const RESPONSE_TYPE = "token"
+
+  const [accessToken, setAccessToken] = useState('')
+
+  useEffect(() => {
+    const hash = window.location.hash
+
+    let accessToken = window.localStorage.getItem('token')
+
+    if (!accessToken && hash) {
+      accessToken = hash.substring(1).split('&').find(item => item.startsWith('access_token')).split('=')[1]
+      // console.log(token);
+
+      window.location.hash = ''
+
+      window.localStorage.setItem('token', accessToken)
+
+      setAccessToken(accessToken)
+    }
+
+    console.log(accessToken.name);
+  }, [])
+
+  const hangleLogOut = () => {
+    setAccessToken('')
+    window.localStorage.removeItem('token')
+  }
+
   return (
     <div className="sideBar">
       <div className="registration">
@@ -21,9 +55,19 @@ const SideBar = () => {
           src="https://via.placeholder.com/40x40"
           alt=""
         />
-        <a href="google.com" className="login">
+        {
+          !accessToken ? 
+          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`} className='login'>
           Login
         </a>
+        :
+        <a 
+        href="google.com" 
+        className='login'
+        onClick={hangleLogOut}>
+          Log out
+        </a>
+        }
       </div>
 
       <div className="menu">

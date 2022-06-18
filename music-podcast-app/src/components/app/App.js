@@ -8,13 +8,14 @@ import Albums from "../albums/Albums";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
 function App() {
   return (
     <>
       <Router>
         <Switch>
           <Route path="/main">
-            <Main />
+            <Main/>
           </Route>
         </Switch>
         <Switch>

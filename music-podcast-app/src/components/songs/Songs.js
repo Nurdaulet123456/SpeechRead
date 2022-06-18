@@ -9,7 +9,7 @@ const Songs = () => {
   // const {id, } = props
   return (
     <div className="songs">
-      <h1 className="songs__title">Songs</h1>
+      <h1 className="title">Songs</h1>
       <div className="albums__block">
         <div className="block">
           <img
