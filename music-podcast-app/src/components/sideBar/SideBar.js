@@ -36,17 +36,17 @@ function SideBar () {
 
       window.localStorage.setItem('token', accessToken)
 
-      setAccessToken(accessToken)
+      
     }
-
-    console.log(accessToken.name);
+    setAccessToken(accessToken)
   }, [])
 
-  const hangleLogOut = () => {
+  const hangleRemove = (e) => {
+    e.preventDefault()
     setAccessToken('')
+
     window.localStorage.removeItem('token')
   }
-
   return (
     <div className="sideBar">
       <div className="registration">
@@ -64,7 +64,7 @@ function SideBar () {
         <a 
         href="google.com" 
         className='login'
-        onClick={hangleLogOut}>
+        onClick={hangleRemove}>
           Log out
         </a>
         }
