@@ -17,15 +17,12 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
-        </Switch>
+        
 
-        <Switch>
-          <Route exact path="/main">
+          <Route exact path="/albums">
             <Albums />
           </Route>
-        </Switch>
 
-        <Switch>
           <Route exact path="/podcast">
             <Podcast />
           </Route>

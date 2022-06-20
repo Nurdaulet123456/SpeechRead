@@ -12,6 +12,7 @@ import HeadPhones from "../../img/icon/headphone-symbol.png";
 import Artist from "../../img/icon/artist.png";
 import PlayList from "../../img/icon/playlist.png";
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 // import useAuth from "../Hooks/useAuth";
 
 function SideBar() {
@@ -47,7 +48,7 @@ function SideBar() {
     window.localStorage.removeItem("token");
   };
   return (
-    <div className="sideBar">
+       <div className="sideBar">
       <div className="registration">
         <img
           className="registration__img"
@@ -72,9 +73,10 @@ function SideBar() {
         <nav className="nav">
           <div className="nav__flex">
             <img src={Podcast} alt="" style={{ width: "18px" }} />
-            <a href="google.com" className="nav__link">
+            {/* <a href="google.com" className="nav__link">
               Podcast
-            </a>
+            </a> */}
+            <Link to='/podcast' className="nav__link">Podcast</Link>
           </div>
           <div className="nav__flex">
             <img src={Play} alt="" style={{ width: "18px" }} />
@@ -96,15 +98,15 @@ function SideBar() {
         <nav className="nav">
           <div className="nav__flex">
             <img src={HeadPhones} alt="" style={{ width: "18px" }} />
-            <a href="google.com" className="nav__link">
+            <Link to='/' className="nav__link">
               Songs
-            </a>
+            </Link>
           </div>
           <div className="nav__flex">
             <img src={Play} alt="" style={{ width: "18px" }} />
-            <a href="google.com" className="nav__link">
+            <Link to='/albums' className="nav__link">
               Albums
-            </a>
+            </Link>
           </div>
           <div className="nav__flex" style={{ marginBottom: "0" }}>
             <img src={Artist} alt="" style={{ width: "18px" }} />
