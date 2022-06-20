@@ -8,7 +8,7 @@ import "../songs/Songs.css";
 import SideBar from "../sideBar/SideBar";
 import AlbumsItem from "../AlbumItems/Albums";
 
-const Albums = ({code}) => {
+const Albums = () => {
   return (
     <div className="albums">
       <div className="container">
