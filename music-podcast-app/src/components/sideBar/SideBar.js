@@ -13,7 +13,8 @@ import Artist from "../../img/icon/artist.png";
 import PlayList from "../../img/icon/playlist.png";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
-// import useAuth from "../Hooks/useAuth";
+
+
 
 function SideBar() {
   const CLIENT_ID = "b39c9c2f4fa346a69e4cdbcafefd5185";

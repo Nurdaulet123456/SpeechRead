@@ -9,8 +9,10 @@ import Podcast from "../podcast/Podcast";
 import LyricsSong from "../lyrics/LyricsSong/LyricsSong";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { useEffect, useState } from "react";
 
 function App() {
+
   return (
     <>
       <Router>
