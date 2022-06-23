@@ -9,12 +9,12 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-track {
   border-radius: 5px;
-  background-color: rgb(33, 33, 33, .4);
+  background-color: rgba(199, 199, 199, 0.4);
 }
 
 html::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: #0e1121;
+  background-color: #c9c9c9;
 }
 
 body {
@@ -29,6 +29,11 @@ body {
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --btnColor: #5856D6;
+  --titleColor: white;
 }
 
 *,
