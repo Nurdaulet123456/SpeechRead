@@ -20,7 +20,7 @@ const Main = () => {
 
                     <div className="main__content">
                         <h1 className="main__title">Сайт для скорость чтение и чтение по таймеру</h1>
-                        <a className="btn" href="#">Get started</a>
+                        <a className="btn" href="google.com">Get started</a>
                     </div>
                 </div>
 
