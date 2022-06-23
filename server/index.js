@@ -28,8 +28,20 @@ app.get('/', (req, res) => {
     res.send('My App')
 })
 
-app.get('/login', (req, res) => {
-    res.send('My App Register')
+app.post('/login', (req, res) => {
+    const {email, password} = req.body
+
+    User.findOne({ email: email}, (err, user) => {
+        if (user) {
+            if (password === user.password) {
+                res.send({message: 'Login successful', user: user})
+            } else {
+                res.send({message: 'Login failed'})
+            }
+        } else {
+            res.send({message: 'User not registered'})
+        }
+    })
 })
 
 app.post('/register', (req, res) => {

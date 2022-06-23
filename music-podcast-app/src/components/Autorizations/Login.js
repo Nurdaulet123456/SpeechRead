@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 
 const Login = () => {
@@ -15,6 +16,12 @@ const Login = () => {
             ...user,
             [name]: value
           })
+      }
+
+
+      const login = () => {
+        axios.post('http://localhost:3001/login', user)
+        .then(res => console.log(res))
       }
 
     return (
@@ -43,7 +50,7 @@ const Login = () => {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button className="button" type="submit">
+            <button className="button" type="submit" onClick={login}>
               Login
             </button>
           </div>
