@@ -23,8 +23,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  background-color: #020617;
-  color: white;
+  background-color: white;
+  color: black;
   font-size: 1.6rem;
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
@@ -73,4 +73,5 @@ ol, ul, li {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 25px;
 }
