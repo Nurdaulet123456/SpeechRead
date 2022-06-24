@@ -25,7 +25,7 @@ const Main = () => {
           </div>
         </div>
 
-        <img className="img finish__img" src={FinishImage} alt="" />
+        <img className="img finish__img" src={FinishImage} alt="" width={'800px'}/>
       </div>
     </div>
   );

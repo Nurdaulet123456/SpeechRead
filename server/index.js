@@ -47,7 +47,8 @@ app.post('/login', (req, res) => {
 app.post('/register', (req, res) => {
     const {name, username, email, password} = req.body
 
-    User.findOne({ email: email }, (err, user) => {
+
+    User.findOne({ email: req.body.email }, (err, user) => {
         if (user) {
             res.send({message: 'User already registered'})
         } else {
