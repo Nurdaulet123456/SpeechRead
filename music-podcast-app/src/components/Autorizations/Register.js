@@ -25,7 +25,7 @@ const Register = () => {
 
         if (name && username && email && password && (password === repeatpassword)) {
 
-        axios.post('http://localhost:3001/register', user)
+        axios.post('http://localhost:3001/api/register', user)
         .then((response) => console.log(response.data.message))
 
       } else {

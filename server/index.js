@@ -2,10 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded());
 app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/autorization', {
@@ -24,40 +26,28 @@ const userShema = new mongoose.Schema({
 
 const User = new mongoose.model('User', userShema)
 
+
 app.get('/', (req, res) => {
     res.send('My App')
 })
 
-app.post('/login', (req, res) => {
-    const {email, password} = req.body
-       
-    
-     User.findOne({ email: email}, (err, user) => {
-            if (user) {
-                if (password === user.password) {
-                    res.send({message: 'Login successful', user: user})
-                } else {
-                    res.send({message: 'Login failed'})
-                }
-            } else {
-                res.send({message: 'User not registered'})
-            }
-        })
-    
-})
 
-app.post('/register',  (req, res) => {
+app.post('/api/register',  async (req, res) => {
     const {name, username, email, password} = req.body
-     User.findOne({ email: req.body.email }, (err, user) => {
+
     
+
+     User.findOne({ email: req.body.email }, (err, user) => {
+
+
         if (user) {
             res.send({message: 'User already registered'})
         } else {
             const user = new User({
-                name,
-                username,
-                email,
-                password
+                name: name,
+                username: username,
+                email: email,
+                password: password
             })
         
             user.save( err => {
@@ -70,9 +60,30 @@ app.post('/register',  (req, res) => {
         }
     })
 
-
 })
 
 app.listen(3001, () => {
     console.log('Be Started in 3001 ports')
+})
+
+app.post('/api/login', async (req, res) => {
+    const {email, password} = req.body
+ 
+  
+        
+    
+     await User.findOne({ email: email}, (err, user) => {
+            if (user) {
+                if (password === user.password) {
+                    res.send({message: 'Login successful', user: user})
+                } else {
+                    res.send({message: 'Login failed'})
+                }
+            } else {
+                res.send({message: 'User not registered'})
+            }
+
+        })
+
+    
 })

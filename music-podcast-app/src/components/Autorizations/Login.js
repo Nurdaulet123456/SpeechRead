@@ -20,7 +20,7 @@ const Login = () => {
 
 
       const login = () => {
-        axios.post('http://localhost:3001/login', user)
+        axios.post('http://localhost:3001/api/login', user)
         .then(res => console.log('login success'))
         console.log('adasd')
       }
