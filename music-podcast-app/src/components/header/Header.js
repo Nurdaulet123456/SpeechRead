@@ -22,7 +22,7 @@ const Header = () => {
 
             <nav className="nav">
               <button className="nav__link" onClick={() => setisOpen(true)}>
-                Регистарция
+                Регистрация
               </button>
               <button className="nav__link" onClick={() => setloginModal(true)}>
                 Войти

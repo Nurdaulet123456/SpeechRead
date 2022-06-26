@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 
 const Login = () => {
@@ -51,9 +52,14 @@ const Login = () => {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button className="button" type="submit" onClick={login}>
+            <motion.button 
+            className="button" 
+            type="submit" 
+            onClick={login}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}>
               Login
-            </button>
+            </motion.button>
           </div>
         </>
     )

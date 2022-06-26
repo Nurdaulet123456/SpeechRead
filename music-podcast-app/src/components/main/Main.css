@@ -19,7 +19,7 @@
 }
 
 .main__title {
-    font-size: 3rem;
+    font-size: 3.3rem;
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
     margin-bottom: 7rem;
@@ -27,6 +27,7 @@
 
 .btn {
     background-color: var(--btnColor);
+    border: none;
     color: var(--titleColor);
     padding: 1.1rem 5.6rem;
     border-radius: 8px;
@@ -50,4 +51,19 @@
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+/* Language */
+
+.language {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+}
+
+.language > img {
+    margin-right: 1.1rem;
 }

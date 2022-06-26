@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
+import { motion } from "framer-motion";
 
 const Register = () => {
 
@@ -91,9 +92,14 @@ const Register = () => {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button className="button" type="submit" onClick={registration}>
+            <motion.button 
+            className="button" 
+            type="submit" 
+            onClick={registration}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}>
               Registration
-            </button>
+            </motion.button>
           </div>
         </>
     )
