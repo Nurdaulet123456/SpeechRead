@@ -2,8 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 
 const app = express();
 
