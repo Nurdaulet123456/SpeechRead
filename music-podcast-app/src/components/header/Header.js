@@ -17,7 +17,7 @@ const Header = () => {
         <div className="container">
           <div className="header__inner">
             <div className="header__logo">
-              <h2 className="header__title">CountWords</h2>
+              <a className="header__link" href="google.com"><h2 className="header__title">CountWords</h2></a>
             </div>
 
             <nav className="nav">

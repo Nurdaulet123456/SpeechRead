@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-
+import './Autorization.css';
 
 const Login = () => {
+
+    const history = useHistory()
 
     const [user, setUser] = useState({
         email: "",
@@ -22,8 +25,11 @@ const Login = () => {
 
       const login = () => {
         axios.post('http://localhost:3001/api/login', user)
-        .then(res => console.log('login success'))
-        console.log('adasd')
+        .then(res =>{
+           alert(res.data.message)
+      })
+
+      history.push('/game')
       }
 
     return (

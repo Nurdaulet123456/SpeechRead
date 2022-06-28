@@ -1,0 +1,61 @@
+.game {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+    color: black;
+    font-size: 3rem;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.times {
+    margin-top: 4rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.timer__block {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10rem;
+}
+
+.timer__block > span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 5rem;
+}
+
+/* Timer */
+
+.block {
+    width: 100px;
+    height: 100px;
+
+    border: 1px solid #D7D7D7;
+
+    font-size: 2.5rem;
+    display: grid;
+    place-items: center;
+}
+
+.block.second {
+    margin-right: 0;
+}
+
+/* Buttons */
+
+.text__center {
+    display: flex;
+    justify-content: space-evenly;
+}
+

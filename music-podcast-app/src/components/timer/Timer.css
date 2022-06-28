@@ -1,0 +1,19 @@
+.timer__title {
+    font-size: 3rem;
+    color: black;
+}
+
+.timer__title::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+
+    background-color: black;
+
+    transition: width .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.timer__title:hover::after {
+    width: 100%;
+}

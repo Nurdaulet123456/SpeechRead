@@ -42,9 +42,12 @@ const LoginModal = ({ open, children, onClose }) => {
       exit={{opacity: 0}}>
         <div className="modal__inner">
           <div className="modal__content">
-            <button className="close__btn" onClick={onClose}>
+            <motion.button 
+            className="close__btn" 
+            onClick={onClose}
+            whileHover={{transform: 'rotate(90deg)'}}>
               <img src={CloseImg} alt="" />
-            </button>
+            </motion.button>
             {children}
           </div>
         </div>

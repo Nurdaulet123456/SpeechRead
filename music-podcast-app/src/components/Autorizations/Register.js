@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from 'axios';
 import { motion } from "framer-motion";
 
+// const EMAIL_REGEX = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i
+
 const Register = () => {
 
     const [user, setUser] = useState({
@@ -11,7 +13,6 @@ const Register = () => {
         password: "",
         repeatpassword: "",
       })
-    
       const hangleChange = (e) => {
           const {name, value} = e.target
           
@@ -25,9 +26,9 @@ const Register = () => {
         const {name, username, email, password, repeatpassword} = user
 
         if (name && username && email && password && (password === repeatpassword)) {
-
-        axios.post('http://localhost:3001/api/register', user)
-        .then((response) => console.log(response.data.message))
+          
+          axios.post('http://localhost:3001/api/register', user)
+          .then((response) => alert(response.data.message))
 
       } else {
         alert('not registered')
@@ -67,6 +68,13 @@ const Register = () => {
               placeholder="Enter your email"
               onChange={hangleChange}
             />
+            {/* {
+                !EMAIL_REGEX.test(user.email) || EMAIL_REGEX.test(user.email) ? (
+                <div className="block error">Error</div>
+              ) : (
+                <div className="block success">Success</div>
+              )
+            } */}
           </div>
 
           <div>

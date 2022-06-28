@@ -99,3 +99,7 @@
 
     cursor: pointer;
 }
+
+.header__link {
+    color: black;
+}
