@@ -1,4 +1,24 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion'
+
 const TimerClock = ({ isOpen }) => {
+
+  const [timer, setTimer] = useState(0);
+  const [running, setRunning] = useState(false);
+
+  useEffect(() => {
+    let interval;
+
+    if (running) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev + 10)
+      }, 1000)
+    } else if (!running) {
+      clearInterval(interval)
+    }
+
+  return () => clearInterval(interval)
+  }, [running, timer])
 
     if (!isOpen) return null
 
@@ -13,8 +33,30 @@ const TimerClock = ({ isOpen }) => {
           </div>
 
           <div className="text__center">
-          <button className="btn times__btn">Start</button>
-          <button className="btn times__btn">Stop</button>
+          <motion.button
+            className="btn times__btn"
+            onClick={() => setRunning(true)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Start
+          </motion.button>
+          <motion.button
+            className="btn times__btn"
+            onClick={() => setRunning(false)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Stop
+          </motion.button>
+          <motion.button
+            className="btn times__btn"
+            onClick={() => setTimer(0)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Reset
+          </motion.button>
           </div>
         </div>
   );

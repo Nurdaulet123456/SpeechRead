@@ -15,6 +15,10 @@ button {
     cursor: pointer;
 }
 
+button:focus {
+outline: none;
+}
+
 .times {
     margin-top: 4rem;
     position: absolute;
