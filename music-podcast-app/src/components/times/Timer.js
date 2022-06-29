@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TimerClock = ({ isOpen }) => {
 
     if (!isOpen) return null
