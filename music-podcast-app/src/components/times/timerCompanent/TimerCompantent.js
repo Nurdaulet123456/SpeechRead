@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 let timeOutId = 0;
@@ -10,6 +10,8 @@ const TimerComponent = (props) => {
     minutes: "00",
     seconds: "00",
   });
+
+  const audio = useRef()
 
   const calculateTimeLeft = () => {
     let currDate = new Date().getTime();
@@ -57,6 +59,18 @@ const TimerComponent = (props) => {
       clearTimeout(timeOutId);
     };
   });
+
+  useEffect(() => {
+    if (timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+      audio.current.play();
+
+      clearTimeout(timeOutId);
+    } else {
+      audio?.current?.load();
+    }
+
+    return () => clearTimeout(timeOutId);
+  }, [timeLeft])
 
   return (
     <div className="times">
