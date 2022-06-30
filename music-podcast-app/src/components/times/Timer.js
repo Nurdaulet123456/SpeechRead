@@ -1,35 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion'
 
 const TimerClock = ({ isOpen }) => {
-
-  const [timer, setTimer] = useState(0);
-  const [running, setRunning] = useState(false);
-
-  useEffect(() => {
-    let interval;
-
-    if (running) {
-      interval = setInterval(() => {
-        setTimer((prev) => prev + 10)
-      }, 1000)
-    } else if (!running) {
-      clearInterval(interval)
-    }
-
-  return () => clearInterval(interval)
-  }, [running, timer])
 
     if (!isOpen) return null
 
   return (
     <div className="times">
           <div className="timer__block">
-            <div className="block clock">00</div>
+            <div className="block clock">
+              00
+            </div>
             <span>:</span>
-            <div className="block minute">00</div>
+            <div className="block minute">
+              00
+            </div>
             <span>:</span>
-            <div className="block second">00</div>
+            <div className="block second">
+              00
+            </div>
           </div>
 
           <div className="text__center">
