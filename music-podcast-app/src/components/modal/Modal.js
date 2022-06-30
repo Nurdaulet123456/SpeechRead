@@ -4,6 +4,8 @@ import ReactDom from "react-dom";
 import CloseImg from "../../images/icons/Close.svg";
 import { motion } from "framer-motion";
 
+import { createPortal } from 'react-dom'
+
 const Modal = ({ open, children, onClose }) => {
   if (!open) return null;
   return ReactDom.createPortal(
@@ -58,4 +60,55 @@ const LoginModal = ({ open, children, onClose }) => {
   );
 };
 
-export { Modal, LoginModal };
+const Translate = ({ isOpen, children }) => {
+  if (!isOpen) {
+    return null;
+  }
+  return 
+};
+
+const ProfileAndResult = ({isOpen, children}) => {
+
+  if (!isOpen) return null;
+  return (
+    <>
+      <div className="profile">
+        {/* <div className="profile__page">
+          adad
+        </div>
+
+        <div className="results">
+          adss
+        </div> */}
+
+        {children}
+      </div>
+    </>
+  );
+}
+
+const SuccessProtal = ({isOpen, children}) => {
+  if (!isOpen) return null;
+
+  return createPortal(
+    <>
+      {children}
+    </>,
+
+    document.getElementById('portal')
+  );
+}
+
+const ErrorProtal = ({isOpen, children}) => {
+  if (!isOpen) return null;
+
+  return createPortal(
+    <>
+      {children}
+    </>,
+
+    document.getElementById('portal')
+  );
+}
+
+export { Modal, LoginModal, Translate, ProfileAndResult, SuccessProtal, ErrorProtal };
