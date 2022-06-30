@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 const TimerClock = ({ isOpen }) => {
 
   const [sessionLength, setSessionLength] = useState(1500);
+  const [breakLength, setBreakLength] = useState(300)
   const [timer, setTimer] = useState(1500);
   const [timerMinutes, setTimerMinutes] = useState('00');
   const [timerSeconds, setTimerSeconds] = useState('00');
@@ -20,6 +21,7 @@ const TimerClock = ({ isOpen }) => {
 
       if (isSessionType === 'Session') {
         setIsSessionType('Break');
+        setTimer(breakLength);
       } else {
         setIsSessionType('Session');
         setTimer(sessionLength);
@@ -74,6 +76,40 @@ const TimerClock = ({ isOpen }) => {
     } else {
       return time
     }
+  }
+
+  function hangleBreakLength(e) {
+    if (started) return;
+
+    if (e.target.id === 'break-decrement' && breakLength > 60) {
+      setBreakLength((prev) => prev - 60) 
+    } else if (e.target.id === 'break-increment' && breakLength < 3500) {
+      setBreakLength((prev) => prev + 60)
+    }
+  }
+
+  function hangleSessionLength(e) {
+    if (started) return
+
+    if (e.target.id === 'session-decrement' && sessionLength > 60) {
+      setSessionLength((prevVal) => prevVal - 60)
+    } else if (e.target.id === 'session-increment' && sessionLength < 3500) {
+      setSessionLength((prevVal) => prevVal + 60)
+    }
+  }
+
+  function hangleTimer () {
+    timerAudio?.current?.load()
+
+    if (timerIntervalId) {
+      clearInterval(timerIntervalId)
+    }
+
+    setTimerIntervalId(null)
+    setSessionLength(1500)
+    setBreakLength(300)
+    setIsSessionType('Session')
+    setTimer(1500)
   }
 
     if (!isOpen) return null
