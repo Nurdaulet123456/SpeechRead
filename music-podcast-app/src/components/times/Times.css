@@ -1,0 +1,19 @@
+.btn__change {
+    width: 35px;
+    height: 35px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.btn__change.downs {
+    margin-left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.btn__change > span {
+    font-size: 0;
+}
