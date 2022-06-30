@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 
 const TimerClock = ({ isOpen }) => {
 
+  // ! SOS useStates
+
   const [sessionLength, setSessionLength] = useState(1500);
   const [breakLength, setBreakLength] = useState(300)
   const [timer, setTimer] = useState(1500);
@@ -14,6 +16,8 @@ const TimerClock = ({ isOpen }) => {
   const timerAudio = useRef();
   let started = timerIntervalId !== null
   
+
+  // UssEffect play audio
 
   useEffect(() => {
     if (timer === 0) {
@@ -30,17 +34,24 @@ const TimerClock = ({ isOpen }) => {
   }, [timer, isSessionType])
 
 
+  // useEffect setTimer
+  
   useEffect(() => {
     setTimer(sessionLength)
   }, [sessionLength])
 
   
+  // useEffect times (type of minutes and seconds)
+
   useEffect(() => {
     let time = secondToTime(timer)
 
     setTimerMinutes(time[0])
     setTimerSeconds(time[1])
   }, [timer])
+
+
+  // Toggle Down
 
   function toggleDown() {
     if (started) {
@@ -66,9 +77,14 @@ const TimerClock = ({ isOpen }) => {
     }
   }
   
+
+  // Seconds Time help with we can calculated seconds and minutes
+
   function secondToTime(second) {
     return [Math.floor(second / 60), second % 60]
   }
+
+  // Format minutes and seconds
 
   function formatTypeTime (time) {
     if (time < 10) {
@@ -77,6 +93,8 @@ const TimerClock = ({ isOpen }) => {
       return time
     }
   }
+
+  // Break Length 
 
   function hangleBreakLength(e) {
     if (started) return;
@@ -88,6 +106,8 @@ const TimerClock = ({ isOpen }) => {
     }
   }
 
+  // Session Length (Length on timers)
+
   function hangleSessionLength(e) {
     if (started) return
 
@@ -97,6 +117,8 @@ const TimerClock = ({ isOpen }) => {
       setSessionLength((prevVal) => prevVal + 60)
     }
   }
+
+  // Timer
 
   function hangleTimer () {
     timerAudio?.current?.load()
