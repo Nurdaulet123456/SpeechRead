@@ -6,6 +6,7 @@ import "./Translate.css";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { motion } from 'framer-motion'
 
 const Translate = () => {
   const [option, setOption] = useState([]);
@@ -50,7 +51,7 @@ const Translate = () => {
       <div className="container">
         <div className="translate">
           <div className="languages">
-            From: {from}
+            <div className="selected">   
             <select onChange={(e) => setFrom(e.target.value)}>
               {option.map((options) => (
                 <option key={options.code} value={options.code}>
@@ -58,7 +59,17 @@ const Translate = () => {
                 </option>
               ))}
             </select>
-            To: {to}
+
+            <div className="textarea__words">
+            <textarea
+              cols="50"
+              rows="8"
+              onInput={(e) => setInput(e.target.value)}
+            ></textarea>
+          </div>
+            </div>
+            
+            <div className="selected" style={{marginLeft: '40px'}}>   
             <select onChange={(e) => setTo(e.target.value)}>
               {option.map((options) => (
                 <option key={options.code} value={options.code}>
@@ -66,22 +77,18 @@ const Translate = () => {
                 </option>
               ))}
             </select>
-          </div>
 
-          <div className="textarea__words">
-            <textarea
-              cols="50"
-              rows="8"
-              onInput={(e) => setInput(e.target.value)}
-            ></textarea>
+            <div className="textarea__words">
+            <textarea cols="50" rows="8" value={output} readOnly='true'></textarea>
           </div>
-          <div className="textarea__words">
-            <textarea cols="50" rows="8" value={output}></textarea>
-          </div>
-
-          <button className="btn" onClick={(e) => translate()}>
+          <div className="btn__right">
+          <motion.button className="btn" onClick={(e) => translate()} whileHover={{scale: 1.1}} whileTap ={{scale: 0.9}}>
             Translate
-          </button>
+          </motion.button>
+          </div>
+          </div>
+          </div>
+        
         </div>
       </div>
     </div>

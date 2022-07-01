@@ -1,0 +1,49 @@
+.translate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 500px;
+}
+
+.languages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ select {
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: transparent;
+    outline: 0;
+    border: 1px solid rgb(210, 210, 210);
+    display: block;
+    padding: 11px 30px 11px 15px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    cursor:pointer;
+    border-radius: 5px 5px 0 0;
+    text-align: left;
+}
+
+.btn__right {
+    text-align: right;
+}
+
+textarea {
+    resize: none;
+    margin-bottom: 20px;
+    border: 1px solid rgb(210, 210, 210);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 11px 15px 11px 15px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.title {
+    text-align: center;
+}
