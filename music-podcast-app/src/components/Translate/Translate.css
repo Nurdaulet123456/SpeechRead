@@ -9,7 +9,6 @@
 
 .languages {
     display: flex;
-    flex-wrap: wrap;
 }
 
  select {
@@ -23,8 +22,10 @@
     font-size: 1.4rem;
     font-weight: 400;
     cursor:pointer;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
     text-align: left;
+
+    margin-bottom: 30px;
 }
 
 .btn__right {
@@ -32,11 +33,11 @@
 }
 
 textarea {
+    width: 100%;
     resize: none;
     margin-bottom: 20px;
     border: 1px solid rgb(210, 210, 210);
-    border-top: none;
-    border-radius: 0 0 5px 5px;
+    border-radius:5px;
     padding: 11px 15px 11px 15px;
 }
 
@@ -46,4 +47,9 @@ textarea:focus {
 
 .title {
     text-align: center;
+}
+
+.textarea {
+    margin-top: 7rem;
+    display: flex;
 }

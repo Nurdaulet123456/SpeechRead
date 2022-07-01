@@ -52,6 +52,7 @@ const Translate = () => {
         <div className="translate">
           <div className="languages">
             <div className="selected">   
+            <div>
             <select onChange={(e) => setFrom(e.target.value)}>
               {option.map((options) => (
                 <option key={options.code} value={options.code}>
@@ -59,18 +60,22 @@ const Translate = () => {
                 </option>
               ))}
             </select>
+            </div>
 
-            <div className="textarea__words">
+           <div>
+           </div>
+          
+          <div className="textarea__words">
             <textarea
               cols="50"
-              rows="8"
+              rows="10"
               onInput={(e) => setInput(e.target.value)}
             ></textarea>
           </div>
             </div>
-            
-            <div className="selected" style={{marginLeft: '40px'}}>   
-            <select onChange={(e) => setTo(e.target.value)}>
+
+            <div className="selected">
+           <select onChange={(e) => setTo(e.target.value)}>
               {option.map((options) => (
                 <option key={options.code} value={options.code}>
                   {options.name}
@@ -79,17 +84,17 @@ const Translate = () => {
             </select>
 
             <div className="textarea__words">
-            <textarea cols="50" rows="8" value={output} readOnly='true'></textarea>
-          </div>
-          <div className="btn__right">
+            <textarea cols="50" rows="10" value={output} readOnly='true'></textarea>
+            <div className="btn__right">
           <motion.button className="btn" onClick={(e) => translate()} whileHover={{scale: 1.1}} whileTap ={{scale: 0.9}}>
             Translate
           </motion.button>
           </div>
           </div>
+            </div>
           </div>
-        
-        </div>
+          </div>
+    
       </div>
     </div>
   );
