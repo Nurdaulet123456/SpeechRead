@@ -6,7 +6,7 @@ import "../../index.css";
 import Header from "../header/Header";
 import Main from "../main/Main";
 import Game from "../Game/Game";
-
+import Translate from "../Translate/Translate";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
           <Switch>
           <Route exact path='/'><Main/></Route>
            <Route exact path='/game'><Game/></Route>
+           <Route exact path='/translate'><Translate/></Route>
           </Switch>
         </Router>
     </div>

@@ -92,10 +92,9 @@ const Main = () => {
         src={FinishImage} alt="" 
         width={'800px'}/>
 
-        <div className='language'>
+        <button className='language'>
             <img src={Language} alt="" width={'35px'}/>
-            <h4 className='language_title'>RU</h4>
-        </div>
+        </button>
       </motion.div>
     </div>
 
