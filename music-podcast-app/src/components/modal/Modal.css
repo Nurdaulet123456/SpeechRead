@@ -1,13 +1,15 @@
+/* Modals  */
+
 .modal {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2000;
+    z-index: 3000;
     padding: 30px 15px;
     overflow: auto;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal__inner {
@@ -23,8 +25,6 @@
     max-width: 400px;
     padding: 25px;
     position: relative;
-    transform: rotate(360deg);
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 
     border-radius: 5px;
 }
@@ -40,6 +40,8 @@
     top: -25px;
     right: -25px;
 }
+
+/* Resut Modal */
 
 .modal__header-content {
     display: flex;
@@ -79,4 +81,40 @@
     height: 1px;
     background-color: #5856D6;
     margin-top: 3px;
+}
+
+/* Modal Status */
+
+.modal.modal__status {
+    background-color: rgba(0, 0, 0, 0.5);
+    right: 0;   
+    z-index: 2000;
+}
+
+.modal__status-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: 2.5rem;
+    margin-right: 40px;
+    min-height: 0;
+}
+
+.modal__content.modal__status-content {
+    max-width: 300px;
+    padding: 9px 20px;
+}
+
+/* Success Modal */
+
+.success__title {
+    color: #20A100;
+    font-size: 1.2rem;
+}
+
+/* Error Modal */
+
+.error__title {
+    color: #ED0000;
+    font-size: 1.4rem;
 }

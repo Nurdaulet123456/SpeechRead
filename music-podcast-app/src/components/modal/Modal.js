@@ -58,9 +58,9 @@ const LoginModal = ({ open, children, onClose }) => {
   );
 };
 
-const ProfileAndResult = ({open, children, isClose}) => {
+const ProfileAndResult = ({openAuto, children, closeBtn}) => {
 
-  if (!open) return null;
+  if (!openAuto) return null;
   return (
     <>
      <motion.div className="modal" 
@@ -71,7 +71,7 @@ const ProfileAndResult = ({open, children, isClose}) => {
         <div className="modal__content">
         <motion.button 
             className="close__btn" 
-            onClick={isClose}
+            onClick={closeBtn}
             whileHover={{transform: 'rotate(90deg)'}}>
               <img src={CloseImg} alt="" />
             </motion.button>
@@ -83,28 +83,58 @@ const ProfileAndResult = ({open, children, isClose}) => {
   );
 }
 
-const SuccessProtal = ({isOpen, children}) => {
-  if (!isOpen) return null;
+const SuccessPortal = ({children,statusopen,statusclose}) => {
+  if (!statusopen) return null;
 
   return ReactDom.createPortal(
     <>
-      {children}
+          <motion.div className="modal modal__status" 
+     initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
+      <div className="modal__inner modal__status-inner">
+        <div className="modal__content modal__status-content">
+        <motion.button 
+            className="close__btn" 
+            onClick={statusclose}
+            whileHover={{transform: 'rotate(90deg)'}}>
+              <img src={CloseImg} alt="" />
+            </motion.button>
+          {children}
+        </div>
+      </div>
+     </motion.div>
     </>,
 
     document.getElementById('portal')
   );
 }
 
-const ErrorProtal = ({isOpen, children}) => {
-  if (!isOpen) return null;
+const ErrorPortal = ({children,statusopen,statusclose}) => {
+  if (!statusopen) return null;
 
   return ReactDom.createPortal(
     <>
-      {children}
+    <motion.div className="modal modal__status" 
+     initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
+      <div className="modal__inner modal__status-inner">
+        <div className="modal__content modal__status-content">
+        <motion.button 
+            className="close__btn" 
+            onClick={statusclose}
+            whileHover={{transform: 'rotate(90deg)'}}>
+              <img src={CloseImg} alt="" />
+            </motion.button>
+          {children}
+        </div>
+      </div>
+     </motion.div>
     </>,
 
     document.getElementById('portal')
   );
 }
 
-export { Modal, LoginModal, ProfileAndResult, SuccessProtal, ErrorProtal };
+export { Modal, LoginModal, ProfileAndResult, SuccessPortal, ErrorPortal };

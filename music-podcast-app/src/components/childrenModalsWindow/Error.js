@@ -2,9 +2,9 @@ import React from 'react';
 
 const Error = () => {
   return (
-    <div>
-        asdas
-    </div>
+    <>
+         <h3 className="title error__title">У вас что-то не то можете повторить</h3>
+    </>
   );
 }
 

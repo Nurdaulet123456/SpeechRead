@@ -1,10 +1,9 @@
-import React from 'react';
 
 const Success = () => {
   return (
-    <div>
-        sad
-    </div>      
+    <>
+        <h3 className="title success__title">Вы успешно регистрирули</h3>
+    </>      
   );
 }
 

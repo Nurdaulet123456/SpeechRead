@@ -6,34 +6,21 @@ import "./Game.css";
 import { useState, useEffect } from "react";
 import TimerClock from "../times/Timer";
 import StopWatchClock from "../times/Stop.Watch";
-import { ProfileAndResult } from "../modal/Modal";
-import Result from "../childrenModalsWindow/Result";
+import CollectModals from '../childrenModalsWindow/CollectModals'
 
-let interval;
+
+// let interval;
 
 const Game = () => {
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [resultOpen, setResultOpen] = useState(false);
   const [timerOpen, setTimerOpen] = useState(false);
+
 
   useEffect(() => {
     setOpen(true);
   }, []);
-
-  useEffect(() => {
-    interval = setTimeout(() => {
-      setIsOpen(true)
-    }, 2000)
-  }, [])
-
-  const handleCloseModal = () => {
-    if (isOpen) {
-      setIsOpen(false)
-      clearTimeout(interval)
-    }
-
-    return () => clearTimeout(interval)
-  }
 
   const hangleOpenTimerBlock = () => {
     setOpen(true);
@@ -66,12 +53,12 @@ const Game = () => {
         </div>
       </div>
 
-    {/* Modals window */}
 
-    <ProfileAndResult open={isOpen} isClose={handleCloseModal}>
-        <Result />
-    </ProfileAndResult>
-
+    <CollectModals 
+    open={resultOpen} 
+    close={setResultOpen}
+    resultOpen={isOpen}
+    setResultOpen={setIsOpen}/>
     </>
   );
 };
