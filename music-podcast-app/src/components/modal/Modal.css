@@ -40,3 +40,43 @@
     top: -25px;
     right: -25px;
 }
+
+.modal__header-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+
+.modal__header-content > p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.modal__header-content p  > span {
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.heartbeat {
+    margin: 1.5rem 0;
+}
+
+.words {
+    text-align: right;
+}
+
+.words button {
+    color: #5856D6;
+}
+
+.words > button::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #5856D6;
+    margin-top: 3px;
+}

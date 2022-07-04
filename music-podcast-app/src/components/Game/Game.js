@@ -9,6 +9,8 @@ import StopWatchClock from "../times/Stop.Watch";
 import { ProfileAndResult } from "../modal/Modal";
 import Result from "../childrenModalsWindow/Result";
 
+let interval;
+
 const Game = () => {
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -18,22 +20,20 @@ const Game = () => {
     setOpen(true);
   }, []);
 
-  useEffect(() => {
-    let interval;
-    if (!isOpen) {
-      interval = setInterval(() => {
-        setIsOpen(true) 
-        console.log('asdsad');
-      }, 5000)
-    }
-    
-    else {
-      clearInterval(interval)
-      console.log('asdsad');
-    }
+  // useEffect(() => {
+  //   interval = setTimeout(() => {
+  //     setIsOpen(true)
+  //   }, 2000)
+  // }, [])
 
-    return () => clearInterval(interval)
-  }, [])
+  // const handleCloseModal = () => {
+  //   if (isOpen) {
+  //     setIsOpen(false)
+  //     clearTimeout(interval)
+  //   }
+
+  //   return () => clearTimeout(interval)
+  // }
 
   const hangleOpenTimerBlock = () => {
     setOpen(true);

@@ -63,17 +63,22 @@ const ProfileAndResult = ({open, children, isClose}) => {
   if (!open) return null;
   return (
     <>
-     <div className="modal">
+     <motion.div className="modal" 
+     initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
       <div className="modal__inner">
         <div className="modal__content">
-          <button className="close__btn" onClick={isClose}>
-            <img src={CloseImg} alt="" />
-          </button>
-
+        <motion.button 
+            className="close__btn" 
+            onClick={isClose}
+            whileHover={{transform: 'rotate(90deg)'}}>
+              <img src={CloseImg} alt="" />
+            </motion.button>
           {children}
         </div>
       </div>
-     </div>
+     </motion.div>
     </>
   );
 }
