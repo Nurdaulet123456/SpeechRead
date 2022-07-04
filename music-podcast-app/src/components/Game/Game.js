@@ -20,20 +20,20 @@ const Game = () => {
     setOpen(true);
   }, []);
 
-  // useEffect(() => {
-  //   interval = setTimeout(() => {
-  //     setIsOpen(true)
-  //   }, 2000)
-  // }, [])
+  useEffect(() => {
+    interval = setTimeout(() => {
+      setIsOpen(true)
+    }, 2000)
+  }, [])
 
-  // const handleCloseModal = () => {
-  //   if (isOpen) {
-  //     setIsOpen(false)
-  //     clearTimeout(interval)
-  //   }
+  const handleCloseModal = () => {
+    if (isOpen) {
+      setIsOpen(false)
+      clearTimeout(interval)
+    }
 
-  //   return () => clearTimeout(interval)
-  // }
+    return () => clearTimeout(interval)
+  }
 
   const hangleOpenTimerBlock = () => {
     setOpen(true);
@@ -66,7 +66,9 @@ const Game = () => {
         </div>
       </div>
 
-    <ProfileAndResult open={isOpen} isClose={() => setIsOpen(false)}>
+    {/* Modals window */}
+
+    <ProfileAndResult open={isOpen} isClose={handleCloseModal}>
         <Result />
     </ProfileAndResult>
 
