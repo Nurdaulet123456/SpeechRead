@@ -58,33 +58,22 @@ const LoginModal = ({ open, children, onClose }) => {
   );
 };
 
-const Translate = ({ isOpen, children }) => {
-  if (!isOpen) {
-    return null;
-  }
+const ProfileAndResult = ({open, children, isClose}) => {
+
+  if (!open) return null;
   return (
     <>
-      {children}
-    </>
-  )
-};
+     <div className="modal">
+      <div className="modal__inner">
+        <div className="modal__content">
+          <button className="close__btn" onClick={isClose}>
+            <img src={CloseImg} alt="" />
+          </button>
 
-const ProfileAndResult = ({isOpen, children}) => {
-
-  if (!isOpen) return null;
-  return (
-    <>
-      <div className="profile">
-        {/* <div className="profile__page">
-          adad
+          {children}
         </div>
-
-        <div className="results">
-          adss
-        </div> */}
-
-        {children}
       </div>
+     </div>
     </>
   );
 }
@@ -113,4 +102,4 @@ const ErrorProtal = ({isOpen, children}) => {
   );
 }
 
-export { Modal, LoginModal, Translate, ProfileAndResult, SuccessProtal, ErrorProtal };
+export { Modal, LoginModal, ProfileAndResult, SuccessProtal, ErrorProtal };
