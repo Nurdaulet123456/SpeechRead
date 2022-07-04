@@ -20,7 +20,7 @@ const Result = () => {
         </div>
 
         <div className="words">
-            <button>Смотреть словы ></button>
+            <button>Смотреть словы</button>
         </div>
     </>
   );

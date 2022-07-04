@@ -7,6 +7,7 @@ import Header from "../header/Header";
 import Main from "../main/Main";
 import Game from "../Game/Game";
 import Translate from "../Translate/Translate";
+import Profile from "../profile/Profile";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/'><Main/></Route>
            <Route exact path='/game'><Game/></Route>
            <Route exact path='/translate'><Translate/></Route>
+           <Route exact path='/profile'><Profile/></Route>
           </Switch>
         </Router>
     </div>
