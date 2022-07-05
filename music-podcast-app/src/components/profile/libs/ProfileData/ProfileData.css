@@ -1,0 +1,51 @@
+
+.avatar {
+    width: 100%;
+    max-width: 306px;
+    position: relative !important;
+    margin-bottom: 3rem;
+}
+
+.profile__avatar {
+    border-radius: 50%;
+}
+
+.profile__status {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black; 
+    position: absolute;
+    top: 65%;
+    right: -5px;
+}
+
+.contact {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.username {
+    font-weight: normal;
+}
+
+.profile__btn {
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+.city, .link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.link {
+    width: 306px;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}
+

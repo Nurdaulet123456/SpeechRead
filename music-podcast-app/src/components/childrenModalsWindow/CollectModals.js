@@ -11,11 +11,11 @@ let interval;
 
 const CollectModals = ({open, close, resultOpen, setResultOpen}) => {
 
-//     useEffect(() => {
-//     interval = setTimeout(() => {
-//         setResultOpen(true)
-//     }, 2000)
-//   }, [])
+  //   useEffect(() => {
+  //   interval = setTimeout(() => {
+  //       setResultOpen(true)
+  //   }, 2000)
+  // }, [])
 
   const handleCloseModal = () => {
     if (resultOpen) {
