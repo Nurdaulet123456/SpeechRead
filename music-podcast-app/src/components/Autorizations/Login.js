@@ -24,12 +24,26 @@ const Login = () => {
 
 
       const login = () => {
-        axios.post('http://localhost:3001/api/login', user)
-        .then(res =>{
-           alert(res.data.message)
-      })
 
-      history.push('/game')
+        if (user.email === "" && user.password === "") {
+          axios.post('http://localhost:3001/api/login', user)
+          .then(res =>{
+             alert('Error ')
+        })
+        } else if (!user.email && !user.password) {
+          axios.post('http://localhost:3001/api/login', user)
+          .then(res =>{
+             alert('Error2 ')
+        })
+        } else {
+          axios.post('http://localhost:3001/api/login', user)
+          .then(res =>{
+             alert(res.data.message)
+             history.push('/game')
+        })
+        }
+
+     
       }
 
     return (
