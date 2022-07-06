@@ -1,62 +1,56 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import './Autorization.css';
 
 const Login = () => {
 
-    const history = useHistory()
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  })
 
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-      })
-    
-      const hangleChange = (e) => {
-          const {name, value} = e.target
-          
-          setUser({
-            ...user,
-            [name]: value
-          })
-      }
+  const [error, setError] = useState('');
 
+  const handleChange = ({currentTarget: input}) => {
+    setData({
+      ...data, 
+      [input.name]: input.value
+    })
+  }
 
-      const login = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-        if (user.email === "" && user.password === "") {
-          axios.post('http://localhost:3001/api/login', user)
-          .then(res =>{
-             alert('Error ')
-        })
-        } else if (!user.email && !user.password) {
-          axios.post('http://localhost:3001/api/login', user)
-          .then(res =>{
-             alert('Error2 ')
-        })
-        } else {
-          axios.post('http://localhost:3001/api/login', user)
-          .then(res =>{
-             alert(res.data.message)
-             history.push('/game')
-        })
+    try {
+      const url = 'http://localhost:8080/api/auth'
+      const {data: res} = await axios.post(url, data)
+      localStorage.setItem('token', res.data)
+      window.location = '/'
+    } catch (error) {
+      if (error.response && 
+        error.response.status >= 400 &&
+        error.response.status <= 500) {
+          setError(error.response.data.message)
         }
-
-     
-      }
+    }
+  }
 
     return (
         <>
-            <h3 className="modal__title">Login</h3>
+         <form onSubmit={handleSubmit}>
+
+         <h3 className="modal__title">Login</h3>
           <div>
             <input
               className="input"
               type="email"
               name="email"
-              value={user.email}
+              value={data.email}
               placeholder="Enter your email"
-              onChange={hangleChange}
+              required
+              onChange={handleChange}
             />
           </div>
 
@@ -65,22 +59,24 @@ const Login = () => {
               className="input"
               type="password"
               name="password"
-              value={user.password}
+              value={data.password}
               placeholder="Enter your password"
-              onChange={hangleChange}
+              required
+              onChange={handleChange}
             />
           </div>
-
+            {error && <div>{error}</div>}
           <div style={{ textAlign: "center" }}>
             <motion.button 
             className="button" 
             type="submit" 
-            onClick={login}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}>
               Login
             </motion.button>
           </div>
+
+         </form>
         </>
     )
 }
