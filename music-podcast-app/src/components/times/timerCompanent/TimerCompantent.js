@@ -11,7 +11,7 @@ const TimerComponent = (props) => {
     seconds: "00",
   });
 
-  const audio = useRef()
+  const audio = useRef();
 
   const calculateTimeLeft = () => {
     let currDate = new Date().getTime();
@@ -61,7 +61,11 @@ const TimerComponent = (props) => {
   });
 
   useEffect(() => {
-    if (timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+    if (
+      timeLeft.hours === 0 &&
+      timeLeft.minutes === 0 &&
+      timeLeft.seconds === 0
+    ) {
       audio.current.play();
 
       clearTimeout(timeOutId);
@@ -70,7 +74,7 @@ const TimerComponent = (props) => {
     }
 
     return () => clearTimeout(timeOutId);
-  }, [timeLeft])
+  }, [timeLeft]);
 
   return (
     <div className="times">

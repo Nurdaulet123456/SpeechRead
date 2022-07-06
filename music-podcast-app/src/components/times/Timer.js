@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TimerComponent from "./timerCompanent/TimerCompantent";
 import InputComponent from "./inputCompanent/InputCompanent";
 import "./Times.css";
-const CountdownComponent = ({isOpen}) => {
+const CountdownComponent = ({ isOpen }) => {
   const [isTimerRunning, setTimerRunning] = useState(false);
   const timerValue = {
     hours: "00",
