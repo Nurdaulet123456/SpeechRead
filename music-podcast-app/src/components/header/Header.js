@@ -8,7 +8,7 @@ import Register from "../Autorizations/Register";
 import {Login, Logout} from "../Autorizations/Login";
 
 
-const Header = () => {
+const Header = ({data}) => {
   const [isOpen, setisOpen] = useState(false);
   const [loginModal, setloginModal] = useState(false);
 
@@ -20,21 +20,18 @@ const Header = () => {
           <div className="header__logo">
              <h2 className="header__title">CountWords</h2>
             </div>
-
-            <nav className="nav">
-              <button className="nav__link" onClick={() => setisOpen(true)}>
-                Регистрация
-              </button>
-              <button className="nav__link" onClick={() => setloginModal(true)}>
-                Войти
-              </button>
-            </nav>
-
-            <button className="burger" type="button">
-              <span className="burger__item"></span>
-              <span className="burger__item"></span>
-              <span className="burger__item"></span>
-            </button>
+              {
+                localStorage.getItem('token') ?
+                <Logout /> :
+                <nav className="nav">
+                <button className="nav__link" onClick={() => setisOpen(true)}>
+                  Регистрация
+                </button>
+                <button className="nav__link" onClick={() => setloginModal(true)}>
+                  Войти
+                </button>
+              </nav>
+              }
           </div>
         </div>
       </div>
@@ -50,22 +47,6 @@ const Header = () => {
   );
 };
 
-const LogoutHeader = () => {
-  return (
-    <div className="header">
-        <div className="container">
-          <div className="header__inner">
-            <div className="header__logo">
-              <h2 className="header__title">CountWords</h2>
-            </div>
 
-            <nav className="nav">
-                <Logout />
-            </nav>
-          </div>
-        </div>
-      </div>
-  );
-}
 
-export {Header, LogoutHeader};
+export {Header};
