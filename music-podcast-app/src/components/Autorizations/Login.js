@@ -27,7 +27,7 @@ const Login = () => {
       const url = 'http://localhost:8080/api/auth'
       const {data: res} = await axios.post(url, data)
       localStorage.setItem('token', res.data)
-      window.location = '/'
+      window.location = '/game'
     } catch (error) {
       if (error.response && 
         error.response.status >= 400 &&
@@ -79,6 +79,23 @@ const Login = () => {
          </form>
         </>
     )
+
 }
 
-export default Login
+
+const Logout = () => {
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+
+  return (
+    <>
+      <button className="nav__link" onClick={handleLogout}>
+          Выйти
+      </button>
+    </>
+  )
+}
+export {Login, Logout};

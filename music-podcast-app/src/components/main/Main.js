@@ -7,9 +7,11 @@ import MainImgaes from "../../images/icons/freepik--Character--inject-31.svg";
 import FinishImage from "../../images/icons/Finish.svg";
 import Language from '../../images/icons/language.png';
 import { LoginModal } from "../modal/Modal";
-import Login from "../Autorizations/Login";
+import {Login} from "../Autorizations/Login";
+import ButtonLogout from "../Button/Button";
 import { useState } from "react";
 import { motion } from 'framer-motion'
+import {Link} from 'react-router-dom'
 
 const container = {
   show: {
@@ -77,6 +79,9 @@ const Main = () => {
             transition={{ delay: 1}}>
               Сайт для скорость чтение и чтение по таймеру
             </motion.h1>
+           {
+            localStorage.getItem('token') ?
+            <ButtonLogout /> :
             <motion.button 
             className="btn" 
             onClick={() => setloginModal(true)}
@@ -84,6 +89,7 @@ const Main = () => {
             whileTap={{ scale: 0.9 }}>
               Get started
             </motion.button>
+          }
           </div>
         </div>
 
@@ -92,9 +98,9 @@ const Main = () => {
         src={FinishImage} alt="" 
         width={'800px'}/>
 
-        <button className='language'>
+        <Link className='language' to={'/translate'}>
             <img src={Language} alt="" width={'35px'}/>
-        </button>
+        </Link>
       </motion.div>
     </div>
 

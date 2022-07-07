@@ -5,7 +5,8 @@ import "../../index.css";
 import { Modal, LoginModal } from "../modal/Modal";
 import { useState } from "react";
 import Register from "../Autorizations/Register";
-import Login from "../Autorizations/Login";
+import {Login, Logout} from "../Autorizations/Login";
+
 
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -16,8 +17,8 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div className="header__inner">
-            <div className="header__logo">
-              <a className="header__link" href="google.com"><h2 className="header__title">CountWords</h2></a>
+          <div className="header__logo">
+             <h2 className="header__title">CountWords</h2>
             </div>
 
             <nav className="nav">
@@ -49,4 +50,22 @@ const Header = () => {
   );
 };
 
-export default Header;
+const LogoutHeader = () => {
+  return (
+    <div className="header">
+        <div className="container">
+          <div className="header__inner">
+            <div className="header__logo">
+              <h2 className="header__title">CountWords</h2>
+            </div>
+
+            <nav className="nav">
+                <Logout />
+            </nav>
+          </div>
+        </div>
+      </div>
+  );
+}
+
+export {Header, LogoutHeader};
