@@ -9,6 +9,7 @@ import Game from "../Game/Game";
 import Translate from "../Translate/Translate";
 import Profile from "../profile/Profile";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function App() {
   return (
