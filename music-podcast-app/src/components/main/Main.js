@@ -21,36 +21,6 @@ const container = {
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: -200 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 1.6,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 0.8,
-    },
-  },
-};
-
-const itemMain = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      ease: [0.6, 0.01, -0.05, 0.95],
-      duration: 1.6,
-    },
-  },
-};
-
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
   
@@ -65,11 +35,9 @@ const Main = () => {
         exit="exit">
         <div 
         className="main__inner">
-          <motion.div 
-          className="main__img"
-          variants={item}>
-            <motion.img className="img" src={MainImgaes} alt="" variants={itemMain}/>
-          </motion.div>
+          <div className="main__img">
+            <img className="img" src={MainImgaes} alt="" />
+          </div>
 
           <div className="main__content">
             <motion.h1 
@@ -80,8 +48,10 @@ const Main = () => {
               Сайт для скорость чтение и чтение по таймеру
             </motion.h1>
            {
-            localStorage.getItem('token') ?
-            <ButtonLogout /> :
+            localStorage.getItem('token') 
+            ?
+            <ButtonLogout /> 
+            :
             <motion.button 
             className="btn" 
             onClick={() => setloginModal(true)}
