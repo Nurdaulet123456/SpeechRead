@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ButtonLogout = () => {
   return (
     <>
-        <Link className='btn' to={'/profile'}>Go to Profile</Link>
+        <Link className='btn' to={`/profile`}>Go to Profile</Link>
     </>
   );
 }

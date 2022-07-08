@@ -53,7 +53,7 @@ const itemMain = {
 
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
-
+  
   return (
     <>
       <div className="main">

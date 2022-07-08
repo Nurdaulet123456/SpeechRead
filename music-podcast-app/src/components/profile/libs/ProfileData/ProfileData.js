@@ -4,8 +4,10 @@ import "./ProfileData.css";
 
 // ? import other files and hooks
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProfileData = () => {
+  let user = JSON.parse(localStorage.getItem('user-info'))
   return (
     <>
       <div className="profile__data">
@@ -25,17 +27,17 @@ const ProfileData = () => {
           <li>
             <h1 className="contact">
               <span className="name" itemProp="name">
-                Nurdaulet
+                {user && user.name}
               </span>
               <br />
               <span className="username" itemProp="username">
-                Nurdaulet123456
+                {user && user.username}
               </span>
             </h1>
           </li>
 
           <li>
-            <button className="btn profile__btn">Edit Profile</button>
+            <Link className="btn profile__btn" to={'/edit'}>Edit Profile</Link>
           </li>
 
           <li>
