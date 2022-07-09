@@ -26,7 +26,7 @@ function App() {
            <PrivateRoutes exact path='/translate'><Translate/></PrivateRoutes>
            <PrivateRoutes exact path='/profile'><Profile/></PrivateRoutes>
            <PrivateRoutes exact path='/edit/'><EditProfile/></PrivateRoutes>
-           <Route exact path='/speech'><Speech /></Route>
+           <PrivateRoutes exact path='/speech'><Speech /></PrivateRoutes>
            <Route exact path="*"><ErrorMessage /></Route>
           </Switch>
         </Router>

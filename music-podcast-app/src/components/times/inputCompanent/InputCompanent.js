@@ -30,7 +30,7 @@ const InputComponent = (props) => {
           <input
             type="number"
             className="block clock"
-            value={minutes}
+            value={0}
             onChange={(e) => setMinutes(e.target.value)}
           />
         </div>
