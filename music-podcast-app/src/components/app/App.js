@@ -5,7 +5,6 @@ import "../../index.css";
 // TODO: import others file
 import {Header} from "../header/Header";
 import Main from "../main/Main";
-import Game from "../Game/Game";
 import Translate from "../Translate/Translate";
 import Profile from "../profile/Profile";
 import PrivateRoutes from "../utils/PrivateRoutes";
@@ -22,11 +21,10 @@ function App() {
         <Router>
           <Switch>
           <Route exact path='/'><Main/></Route>
-           <PrivateRoutes exact path='/game'><Game/></PrivateRoutes>
+           <PrivateRoutes exact path='/game'><Speech/></PrivateRoutes>
            <PrivateRoutes exact path='/translate'><Translate/></PrivateRoutes>
            <PrivateRoutes exact path='/profile'><Profile/></PrivateRoutes>
            <PrivateRoutes exact path='/edit/'><EditProfile/></PrivateRoutes>
-           <PrivateRoutes exact path='/speech'><Speech /></PrivateRoutes>
            <Route exact path="*"><ErrorMessage /></Route>
           </Switch>
         </Router>
