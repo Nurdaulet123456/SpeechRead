@@ -11,6 +11,7 @@ import Profile from "../profile/Profile";
 import PrivateRoutes from "../utils/PrivateRoutes";
 import EditProfile from "../profile/Edit-Profile/Edit-Profile";
 import ErrorMessage from "../pages/Page-404/Page404";
+import Speech from "../speechToText/Speech";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 
@@ -25,6 +26,7 @@ function App() {
            <PrivateRoutes exact path='/translate'><Translate/></PrivateRoutes>
            <PrivateRoutes exact path='/profile'><Profile/></PrivateRoutes>
            <PrivateRoutes exact path='/edit/'><EditProfile/></PrivateRoutes>
+           <Route exact path='/speech'><Speech /></Route>
            <Route exact path="*"><ErrorMessage /></Route>
           </Switch>
         </Router>
