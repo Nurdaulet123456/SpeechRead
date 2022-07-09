@@ -8,7 +8,7 @@ import Register from "../Autorizations/Register";
 import {Login, Logout} from "../Autorizations/Login";
 
 
-const Header = ({data}) => {
+const Header = () => {
   const [isOpen, setisOpen] = useState(false);
   const [loginModal, setloginModal] = useState(false);
 

@@ -1,15 +1,11 @@
 // import { useEffect } from 'react';
-import { ErrorPortal } from '../modal/Modal';
-import Error from './Error';
 import { ProfileAndResult } from "../modal/Modal";
 import Result from "./Result";
-import { SuccessPortal } from '../modal/Modal';
-import Success from './Success';
 
 
 let interval;
 
-const CollectModals = ({open, close, resultOpen, setResultOpen}) => {
+const CollectModals = ({resultOpen, setResultOpen}) => {
 
   //   useEffect(() => {
   //   interval = setTimeout(() => {
@@ -27,14 +23,6 @@ const CollectModals = ({open, close, resultOpen, setResultOpen}) => {
   }
   return (
     <>
-        <SuccessPortal statusopen={open} statusclose={() => close(false)}>
-            <Success />
-        </SuccessPortal>
-
-        <ErrorPortal statusopen={open} statusclose={() => close(false)}>
-            <Error />
-        </ErrorPortal>
-
         <ProfileAndResult openAuto={resultOpen} closeBtn={handleCloseModal}>
         <Result />
     </ProfileAndResult>

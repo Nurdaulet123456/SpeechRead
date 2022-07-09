@@ -1,3 +1,5 @@
+import './Autorization.css';
+
 import { useState } from "react";
 import axios from 'axios';
 import { motion } from "framer-motion";
@@ -41,7 +43,7 @@ const Register = () => {
            <form onSubmit={handleSubmit}>
             
            <h3 className="modal__title">Registration</h3>
-          <div>
+          <div className="blocks">
             <input
               className="input"
               type="text"
@@ -52,7 +54,7 @@ const Register = () => {
             />
           </div>
 
-          <div>
+          <div className="blocks">
             <input
               className="input"
               type="text"
@@ -63,7 +65,7 @@ const Register = () => {
             />
           </div>
 
-          <div>
+          <div className="blocks">
             <input
               className="input"
               type="email"
@@ -74,7 +76,7 @@ const Register = () => {
             />
           </div>
 
-          <div>
+          <div className="blocks">
             <input
               className="input"
               type="password"

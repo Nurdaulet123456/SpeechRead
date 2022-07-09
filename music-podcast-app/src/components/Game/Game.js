@@ -8,9 +8,6 @@ import TimerClock from "../times/Timer";
 import StopWatchClock from "../times/Stop.Watch";
 import CollectModals from '../childrenModalsWindow/CollectModals'
 
-
-// let interval;
-
 const Game = () => {
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);

@@ -12,7 +12,6 @@ import PrivateRoutes from "../utils/PrivateRoutes";
 import EditProfile from "../profile/Edit-Profile/Edit-Profile";
 import ErrorMessage from "../pages/Page-404/Page404";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-// import { Helmet } from 'react-helmet'
 
 
 function App() {
