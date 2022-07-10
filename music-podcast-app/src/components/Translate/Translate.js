@@ -3,10 +3,8 @@ import "../../index.css";
 import "./Translate.css";
 
 // ? import othres files
-
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from 'framer-motion'
 
 const Translate = () => {
   const [option, setOption] = useState([]);
@@ -86,9 +84,9 @@ const Translate = () => {
             <div className="textarea__words">
             <textarea cols="50" rows="10" value={output} readOnly='true'></textarea>
             <div className="btn__right">
-          <motion.button className="btn" onClick={(e) => translate()} whileHover={{scale: 1.1}} whileTap ={{scale: 0.9}}>
+          <button className="btn" onClick={(e) => translate()}>
             Translate
-          </motion.button>
+          </button>
           </div>
           </div>
             </div>

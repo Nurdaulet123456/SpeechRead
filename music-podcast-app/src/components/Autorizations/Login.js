@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
 import './Autorization.css';
 
 const Login = () => {
@@ -67,13 +66,11 @@ const Login = () => {
           </div>
             {error && <div>{error}</div>}
           <div style={{ textAlign: "center" }}>
-            <motion.button 
+            <button 
             className="button" 
-            type="submit" 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}>
+            type="submit">
               Login
-            </motion.button>
+            </button>
           </div>
 
          </form>

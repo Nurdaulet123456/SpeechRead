@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 const InputComponent = (props) => {
   const [hours, setHours] = useState(0);
@@ -48,22 +47,18 @@ const InputComponent = (props) => {
       </div>
 
       <div className="text__center">
-        <motion.button
+        <button
           className="btn times__btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
           onClick={startTimer}
         >
           Start
-        </motion.button>
+        </button>
 
-        <motion.button
+        <button
           className="btn times__btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         >
           Stop
-        </motion.button>
+        </button>
       </div>
     </div>
   );

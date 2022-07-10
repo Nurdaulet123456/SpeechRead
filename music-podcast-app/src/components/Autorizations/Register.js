@@ -2,7 +2,6 @@ import './Autorization.css';
 
 import { useState } from "react";
 import axios from 'axios';
-import { motion } from "framer-motion";
 
 
 const Register = () => {
@@ -20,6 +19,7 @@ const Register = () => {
       ...data, 
       [input.name]: input.value
     })
+
   }
 
   const handleSubmit = async (e) => {
@@ -90,13 +90,11 @@ const Register = () => {
           {error && <div>{error}</div>}
 
           <div style={{ textAlign: "center" }}>
-            <motion.button 
+            <button 
             className="button" 
-            type="submit" 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}>
+            type="submit">
               Registration
-            </motion.button>
+            </button>
           </div>
 
            </form>

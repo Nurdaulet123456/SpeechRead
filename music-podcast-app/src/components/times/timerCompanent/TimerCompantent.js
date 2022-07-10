@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+
 
 let timeOutId = 0;
 const TimerComponent = (props) => {
@@ -97,22 +97,18 @@ const TimerComponent = (props) => {
       </div>
 
       <div className="text__center">
-        <motion.button
+        <button
           className="btn times__btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         >
           Start
-        </motion.button>
+        </button>
 
-        <motion.button
+        <button
           className="btn times__btn"
           onClick={stopTimer}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         >
           Stop
-        </motion.button>
+        </button>
       </div>
     </div>
   );

@@ -10,55 +10,35 @@ import { LoginModal } from "../modal/Modal";
 import {Login} from "../Autorizations/Login";
 import ButtonLogout from "../Button/Button";
 import { useState } from "react";
-import { motion } from 'framer-motion'
 import {Link} from 'react-router-dom'
-
-const container = {
-  show: {
-    transition: {
-      staggerChildren: 0.35,
-    },
-  },
-};
 
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
-  
   return (
     <>
       <div className="main">
-      <motion.div 
-      className="container" 
-        variants={container}
-        initial="hidden"
-        animate="show"
-        exit="exit">
-        <div 
+      <div className="container">
+      <div 
         className="main__inner">
           <div className="main__img">
             <img className="img" src={MainImgaes} alt="" />
           </div>
 
           <div className="main__content">
-            <motion.h1 
-            className="main__title" 
-            initial={{opacity: 0}} 
-            animate={{opacity: 1}} 
-            transition={{ delay: 1}}>
+            <h1 
+            className="main__title">
               Сайт для скорость чтение и чтение по таймеру
-            </motion.h1>
+            </h1>
            {
             localStorage.getItem('token') 
             ?
             <ButtonLogout /> 
             :
-            <motion.button 
+            <button 
             className="btn" 
-            onClick={() => setloginModal(true)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}>
+            onClick={() => setloginModal(true)}>
               Get started
-            </motion.button>
+            </button>
           }
           </div>
         </div>
@@ -67,11 +47,10 @@ const Main = () => {
         className="img finish__img" 
         src={FinishImage} alt="" 
         width={'800px'}/>
-
         <Link className='language' to={'/translate'}>
             <img src={Language} alt="" width={'35px'}/>
         </Link>
-      </motion.div>
+      </div>
     </div>
 
     <LoginModal open={loginModal} onClose={() => setloginModal(false)}>

@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-
 const StopWatchClock = ({ timerIsOpen }) => {
   const [timer, setTimer] = useState(0);
   const [running, setRunning] = useState(false);
@@ -38,30 +36,24 @@ const StopWatchClock = ({ timerIsOpen }) => {
         </div>
 
         <div className="text__center">
-          <motion.button
+          <button
             className="btn times__btn"
             onClick={() => setRunning(true)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             Start
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="btn times__btn"
             onClick={() => setRunning(false)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             Stop
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="btn times__btn"
             onClick={() => setTimer(0)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             Reset
-          </motion.button>
+          </button>
         </div>
       </div>
     </div>
