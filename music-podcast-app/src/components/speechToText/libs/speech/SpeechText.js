@@ -6,12 +6,11 @@ const mic = new SpeechRecognition();
 
 mic.continuous = true;
 mic.interimResults = true;
-mic.lang = "KZ";
+mic.lang = "en-US";
 
 function SpeechText() {
   const [isListening, setIsListening] = useState(false);
-  const [note, setNote] = useState(null);
-  const [savedNotes, setSavedNotes] = useState([]);
+  const [note, setNote] = useState("");
 
   useEffect(() => {
     handleListen();
@@ -25,8 +24,7 @@ function SpeechText() {
       };
     } else {
       mic.stop();
-      mic.onend = () => {
-      };
+      mic.onend = () => {};
     }
 
     mic.onresult = (event) => {
@@ -38,11 +36,6 @@ function SpeechText() {
     };
   };
 
-  const handleSaveNote = () => {
-    setSavedNotes([...savedNotes, note]);
-    setNote("");
-  };
-
   return (
     <div className="main">
       <div className="container">
@@ -51,19 +44,12 @@ function SpeechText() {
           <div className="box">
             <h2>Current Note</h2>
             {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-            <button onClick={handleSaveNote} disabled={!note}>
-              Save Note
-            </button>
             <button onClick={() => setIsListening((prevState) => !prevState)}>
               Start/Stop
             </button>
-            <p style={{display: isListening ? 'none' : 'block'}}>{note}</p>
-          </div>
-          <div className="box">
-            <h2>Notes</h2>
-            {savedNotes.map((n) => (
-              <p key={n}>{n}</p>
-            ))}
+            <p style={{ display: isListening ? "none" : "block" }}>
+              {`${((note.split(" ").length / 60) * 100).toFixed(0)}wpm`}
+            </p>
           </div>
         </div>
       </div>
