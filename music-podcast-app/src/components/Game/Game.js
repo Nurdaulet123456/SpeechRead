@@ -53,7 +53,14 @@ const Game = (props) => {
             handleListening={handleListening}
             startSpeech={startSpeech}
           />
-          <StopWatchClock timerIsOpen={timerOpen} />
+          <StopWatchClock
+            timerIsOpen={timerOpen}
+            stopSpeech={stopSpeech}
+            listen={listen}
+            isNote={isNote}
+            handleListening={handleListening}
+            startSpeech={startSpeech}
+          />
         </div>
       </div>
 

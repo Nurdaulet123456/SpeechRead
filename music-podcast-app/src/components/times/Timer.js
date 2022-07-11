@@ -6,7 +6,7 @@ import "./Times.css";
 // ! Speech to text
 
 const CountdownComponent = (props) => {
-  const {isOpen, stopSpeech, listen, isNote, handleListening, startSpeech} = props;
+  const {isOpen, stopSpeech, isNote, handleListening, startSpeech} = props;
   const [isTimerRunning, setTimerRunning] = useState(false);
 
   // ! Timer time

@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-const StopWatchClock = ({ timerIsOpen }) => {
+const StopWatchClock = (props) => {
+  const { 
+  timerIsOpen,
+  stopSpeech,
+  isNote,
+  handleListening,
+  startSpeech} = props
+
   const [timer, setTimer] = useState(0);
   const [running, setRunning] = useState(false);
 
@@ -10,8 +17,11 @@ const StopWatchClock = ({ timerIsOpen }) => {
       interval = setInterval(() => {
         setTimer((prev) => prev + 10);
       }, 5);
+      handleListening();
+      startSpeech();
     } else if (!running) {
       clearInterval(interval);
+      stopSpeech()
     }
 
     return () => clearInterval(interval);
@@ -55,6 +65,7 @@ const StopWatchClock = ({ timerIsOpen }) => {
             Reset
           </button>
         </div>
+        <p>{isNote}</p>
       </div>
     </div>
   );
