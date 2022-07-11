@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const InputComponent = (props) => {
+  const {handle, start} = props;
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -10,6 +11,9 @@ const InputComponent = (props) => {
       minutes,
       seconds,
     });
+
+    start();
+    handle();
   };
   return (
     <div className="times">

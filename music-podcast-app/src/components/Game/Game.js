@@ -6,14 +6,14 @@ import "./Game.css";
 import { useState, useEffect } from "react";
 import TimerClock from "../times/Timer";
 import StopWatchClock from "../times/Stop.Watch";
-import CollectModals from '../childrenModalsWindow/CollectModals'
+import CollectModals from "../childrenModalsWindow/CollectModals";
 
-const Game = () => {
+const Game = (props) => {
+  const { stopSpeech, listen, isNote, handleListening, startSpeech } = props;
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [resultOpen, setResultOpen] = useState(false);
   const [timerOpen, setTimerOpen] = useState(false);
-
 
   useEffect(() => {
     setOpen(true);
@@ -45,17 +45,24 @@ const Game = () => {
               </button>
             </div>
           </div>
-          <TimerClock isOpen={open} />
+          <TimerClock
+            isOpen={open}
+            stopSpeech={stopSpeech}
+            listen={listen}
+            isNote={isNote}
+            handleListening={handleListening}
+            startSpeech={startSpeech}
+          />
           <StopWatchClock timerIsOpen={timerOpen} />
         </div>
       </div>
 
-
-    <CollectModals 
-    open={resultOpen} 
-    close={setResultOpen}
-    resultOpen={isOpen}
-    setResultOpen={setIsOpen}/>
+      <CollectModals
+        open={resultOpen}
+        close={setResultOpen}
+        resultOpen={isOpen}
+        setResultOpen={setIsOpen}
+      />
     </>
   );
 };
