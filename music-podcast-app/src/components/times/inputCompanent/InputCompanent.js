@@ -4,16 +4,12 @@ const InputComponent = (props) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const {handleListening, startSpeech} = props;
   const startTimer = () => {
     props.startCountdown({
       hours,
       minutes,
       seconds,
     });
-
-    handleListening();
-    startSpeech();
   };
   return (
     <div className="times">

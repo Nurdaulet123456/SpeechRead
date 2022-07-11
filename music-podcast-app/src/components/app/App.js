@@ -10,7 +10,6 @@ import Translate from "../Translate/Translate";
 import Profile from "../profile/Profile";
 import PrivateRoutes from "../utils/PrivateRoutes";
 import EditProfile from "../profile/Edit-Profile/Edit-Profile";
-import SpeechText from "../speechToText/SpeechText";
 import ErrorMessage from "../Page-404/Page404";
 import Speech from "../speechToText/Speech";
 import Spinner from "../spinner/Spinner";
@@ -64,9 +63,6 @@ const Contents = () => {
           </PrivateRoutes>
           <PrivateRoutes exact path="/edit/">
             <EditProfile />
-          </PrivateRoutes>
-          <PrivateRoutes exact path="/speech">
-            <SpeechText />
           </PrivateRoutes>
           <Route exact path="*">
             <ErrorMessage />
