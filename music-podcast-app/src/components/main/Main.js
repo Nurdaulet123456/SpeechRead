@@ -12,8 +12,10 @@ import ButtonLogout from "../Button/Button";
 import { useState } from "react";
 import {Link} from 'react-router-dom'
 
+
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
+
   return (
     <>
       <div className="main">
