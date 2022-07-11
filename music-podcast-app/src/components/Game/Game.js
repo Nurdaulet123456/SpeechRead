@@ -62,6 +62,7 @@ const Game = (props) => {
         close={setResultOpen}
         resultOpen={isOpen}
         setResultOpen={setIsOpen}
+        note={isNote}
       />
     </>
   );

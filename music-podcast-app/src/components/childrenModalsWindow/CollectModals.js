@@ -1,17 +1,17 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ProfileAndResult } from "../modal/Modal";
 import Result from "./Result";
 
 
 let interval;
 
-const CollectModals = ({resultOpen, setResultOpen}) => {
-
-  //   useEffect(() => {
-  //   interval = setTimeout(() => {
-  //       setResultOpen(true)
-  //   }, 2000)
-  // }, [])
+const CollectModals = (props) => {
+    const {resultOpen, setResultOpen, note} = props
+    useEffect(() => {
+    interval = setTimeout(() => {
+        setResultOpen(true)
+    }, 2000)
+  }, [])
 
   const handleCloseModal = () => {
     if (resultOpen) {
@@ -24,8 +24,8 @@ const CollectModals = ({resultOpen, setResultOpen}) => {
   return (
     <>
         <ProfileAndResult openAuto={resultOpen} closeBtn={handleCloseModal}>
-        <Result />
-    </ProfileAndResult>
+        <Result note={note}/>
+        </ProfileAndResult>
     </>
   );
 }

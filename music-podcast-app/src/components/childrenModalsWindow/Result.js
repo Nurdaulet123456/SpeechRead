@@ -1,7 +1,7 @@
 import React from 'react';
 import HearBeat from '../../images/icons/heartbeat.svg';
 
-const Result = () => {
+const Result = ({ note }) => {
   return (
     <>
 
