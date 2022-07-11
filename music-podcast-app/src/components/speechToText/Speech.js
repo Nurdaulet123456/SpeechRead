@@ -7,7 +7,7 @@ const mic = new SpeechRecognition();
 
 mic.continuous = true;
 mic.interimResults = true;
-mic.lang = "kk-KZ";
+mic.lang = "en-US";
 
 const Speech = () => {
   const [isListening, setIsListening] = useState(false);

@@ -12,7 +12,6 @@ const Game = (props) => {
   const { stopSpeech, listen, isNote, handleListening, startSpeech } = props;
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [resultOpen, setResultOpen] = useState(false);
   const [timerOpen, setTimerOpen] = useState(false);
 
   useEffect(() => {
@@ -28,6 +27,14 @@ const Game = (props) => {
     setTimerOpen(true);
     setOpen(false);
   };
+
+  const handleResultOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleResultClose = () => {
+    setIsOpen(false);
+  }
   return (
     <>
       <div className="main">
@@ -52,6 +59,7 @@ const Game = (props) => {
             isNote={isNote}
             handleListening={handleListening}
             startSpeech={startSpeech}
+            isResultOpen={handleResultOpen}
           />
           <StopWatchClock
             timerIsOpen={timerOpen}
@@ -65,11 +73,10 @@ const Game = (props) => {
       </div>
 
       <CollectModals
-        open={resultOpen}
-        close={setResultOpen}
         resultOpen={isOpen}
         setResultOpen={setIsOpen}
         note={isNote}
+        isClose={handleResultClose}
       />
     </>
   );

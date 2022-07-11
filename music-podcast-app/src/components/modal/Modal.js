@@ -53,7 +53,7 @@ const LoginModal = ({ open, children, onClose }) => {
   );
 };
 
-const ProfileAndResult = ({ openAuto, children, closeBtn }) => {
+const ProfileAndResult = ({ openAuto, children, close }) => {
   if (!openAuto) return null;
   return (
     <>
@@ -64,7 +64,7 @@ const ProfileAndResult = ({ openAuto, children, closeBtn }) => {
           <div className="modal__content">
             <button
               className="close__btn"
-              onClick={closeBtn}
+              onClick={close}
             >
               <img src={CloseImg} alt="" />
             </button>

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 let timeOutId = 0;
 const TimerComponent = (props) => {
-  const { timerData, stop, note} = props;
+  const { timerData, stop, open} = props;
   const [countdownTime, setCountdownTime] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     hours: "00",
@@ -37,6 +37,7 @@ const TimerComponent = (props) => {
     }
     props.stopCountdown();
     stop();
+    open();
   };
   useEffect(() => {
     let expectedTime = new Date().getTime();
@@ -111,7 +112,6 @@ const TimerComponent = (props) => {
           Stop
         </button>
       </div>
-      <p>{note}</p>
     </div>
   );
 };
