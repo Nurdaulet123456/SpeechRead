@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Game from "../Game/Game";
+import { Helmet } from 'react-helmet'
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -47,6 +48,9 @@ const Speech = () => {
 
   return (
     <>
+     <Helmet>
+      <title>Game</title>
+    </Helmet>
       <Game
         stopSpeech={stop}
         listen={isListening}

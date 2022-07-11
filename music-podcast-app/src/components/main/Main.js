@@ -11,6 +11,7 @@ import {Login} from "../Autorizations/Login";
 import ButtonLogout from "../Button/Button";
 import { useState } from "react";
 import {Link} from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 
 const Main = () => {
@@ -18,6 +19,9 @@ const Main = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Count Words</title>
+    </Helmet>
       <div className="main">
       <div className="container">
       <div 

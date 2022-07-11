@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import HearBeat from '../../images/icons/heartbeat.svg';
 
 const Result = ({ note }) => {
-    useEffect(() => {
-        console.log(note);
-    }, []);
+    const [count, setCount] = useState(0);
+
   return (
     <>
 
@@ -12,8 +11,8 @@ const Result = ({ note }) => {
             <h3 className="title">Результат</h3>
 
             <div className="modal__header-content">
-                <p>Слова <br /><span>{note.split(' ').length <= 1 ? '' : note.split(' ').length}</span></p>
-                {/* <p>Страница <br /><span>120</span></p> */}
+                <p>Слова <br /><span>{note.split(' ').length <= 1 ? 0 : note.split(' ').length}</span></p>
+                <p>Страница <br /><span>{note.split(' ').length > 100 ? setCount(count + 1) : count}</span></p>
                 <p>Скорость <br /><span>{`${((note.split(' ').length / 60) * 100).toFixed(0)}wpm`}</span></p>
             </div>
 
