@@ -6,7 +6,7 @@ const mic = new SpeechRecognition();
 
 mic.continuous = true;
 mic.interimResults = true;
-mic.lang = "en-US";
+mic.lang = "kk-KZ";
 
 function SpeechText() {
   const [isListening, setIsListening] = useState(false);
@@ -49,6 +49,9 @@ function SpeechText() {
             </button>
             <p style={{ display: isListening ? "none" : "block" }}>
               {`${((note.split(" ").length / 60) * 100).toFixed(0)}wpm`}
+            </p>
+            <p style={{ display: isListening ? "none" : "block" }}>
+              {note.split(" ").length <= 1 ? '' : note.split(" ").length}
             </p>
           </div>
         </div>
