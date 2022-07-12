@@ -60,7 +60,7 @@ const Game = (props) => {
             handleListening={handleListening}
             startSpeech={startSpeech}
             isResultOpen={handleResultOpen}
-          />
+            />
           <StopWatchClock
             timerIsOpen={timerOpen}
             stopSpeech={stopSpeech}
@@ -68,7 +68,8 @@ const Game = (props) => {
             isNote={isNote}
             handleListening={handleListening}
             startSpeech={startSpeech}
-          />
+            isResultOpen={handleResultOpen}
+            />
         </div>
       </div>
 

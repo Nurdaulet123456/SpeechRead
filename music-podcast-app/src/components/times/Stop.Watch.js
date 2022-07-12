@@ -5,7 +5,8 @@ const StopWatchClock = (props) => {
   stopSpeech,
   isNote,
   handleListening,
-  startSpeech} = props
+  startSpeech,
+  isResultOpen} = props
 
   const [timer, setTimer] = useState(0);
   const [running, setRunning] = useState(false);
@@ -22,6 +23,7 @@ const StopWatchClock = (props) => {
     } else if (!running) {
       clearInterval(interval);
       stopSpeech()
+      // isResultOpen();
     }
 
     return () => clearInterval(interval);
