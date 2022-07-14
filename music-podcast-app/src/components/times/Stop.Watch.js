@@ -3,10 +3,9 @@ const StopWatchClock = (props) => {
   const { 
   timerIsOpen,
   stopSpeech,
-  isNote,
   handleListening,
   startSpeech,
-  isResultOpen} = props
+  isStopWatchResultOpen} = props
 
   const [timer, setTimer] = useState(0);
   const [running, setRunning] = useState(false);
@@ -20,12 +19,14 @@ const StopWatchClock = (props) => {
       }, 5);
       handleListening();
       startSpeech();
+    
     } else if (!running) {
       clearInterval(interval);
       stopSpeech()
-      // isResultOpen();
+      isStopWatchResultOpen();
+      console.log('asdasdasd');
     }
-
+    
     return () => clearInterval(interval);
   }, [running]);
 
@@ -67,7 +68,6 @@ const StopWatchClock = (props) => {
             Reset
           </button>
         </div>
-        <p>{isNote}</p>
       </div>
     </div>
   );

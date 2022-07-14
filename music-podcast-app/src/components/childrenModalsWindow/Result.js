@@ -43,7 +43,6 @@ const Result = ({ note }) => {
           />
         </div>
       </div>
-      <p>{note}</p>
       <div className="words">
         <button>Смотреть словы</button>
       </div>

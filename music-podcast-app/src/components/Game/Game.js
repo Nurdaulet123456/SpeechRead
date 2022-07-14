@@ -65,10 +65,9 @@ const Game = (props) => {
             timerIsOpen={timerOpen}
             stopSpeech={stopSpeech}
             listen={listen}
-            isNote={isNote}
             handleListening={handleListening}
             startSpeech={startSpeech}
-            isResultOpen={handleResultOpen}
+            isStopWatchResultOpen={handleResultOpen}
             />
         </div>
       </div>
