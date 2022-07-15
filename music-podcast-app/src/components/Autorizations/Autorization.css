@@ -1,3 +1,20 @@
 input {
     background-color: white;
 }
+
+.submit__btn {
+    transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.submit__btn:hover {
+    transform: scale(1.1);
+}
+
+/* Error Result */
+
+.error__result {
+    font-size: 1.4rem;
+    color: red;
+
+    margin-bottom: 2rem;
+}

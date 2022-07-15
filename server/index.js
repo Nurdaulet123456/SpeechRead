@@ -5,7 +5,7 @@ const cors = require('cors');
 const con = require('./db')
 const userRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
-
+const updateProfile = require('./routes/updateProfile')
 
 const app = express();
 
@@ -18,6 +18,7 @@ con()
 // Routers
 app.use('/api/users', userRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/updateProfile', updateProfile);
 
 const port = process.env.PORT || 8080;
 

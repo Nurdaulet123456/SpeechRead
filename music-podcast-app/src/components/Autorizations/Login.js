@@ -64,10 +64,10 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
-            {error && <div>{error}</div>}
+            {error && <div className="error__result">{error}</div>}
           <div style={{ textAlign: "center" }}>
             <button 
-            className="button" 
+            className="button submit__btn" 
             type="submit">
               Login
             </button>
