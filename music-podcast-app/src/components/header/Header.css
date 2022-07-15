@@ -10,6 +10,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
+    box-shadow: 0px 15px 6px -20px #000;
 }
 
 .header__inner {

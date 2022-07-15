@@ -123,3 +123,19 @@
     color: #ED0000;
     font-size: 1.4rem;
 }
+/* CSSTransition */
+
+.open-modal-enter {
+    opacity: 0;
+  }
+  .open-modal-enter-active {
+    opacity: 1;
+    transition: all .2s linear;
+  }
+  .open-modal-exit {
+    opacity: 1;
+  }
+  .open-modal-exit-active {
+    opacity: 0;
+    transition: all .2s linear;
+  }

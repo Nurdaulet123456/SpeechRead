@@ -12,7 +12,7 @@ import ButtonLogout from "../../Button/Button";
 import { useState } from "react";
 import {Link} from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-
+import LightSpeed  from 'react-reveal/LightSpeed'
 
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
@@ -31,17 +31,20 @@ const Main = () => {
           </div>
 
           <div className="main__content">
-            <h1 
-            className="main__title">
-              Сайт для скорость чтение и чтение по таймеру
-            </h1>
+            
+            <LightSpeed right>
+              <h1 
+              className="main__title">
+                Сайт для скорость чтение и чтение по таймеру
+              </h1>
+              </LightSpeed>
            {
             localStorage.getItem('token') 
             ?
             <ButtonLogout /> 
             :
             <button 
-            className="btn" 
+            className="btn submit__btn" 
             onClick={() => setloginModal(true)}>
               Get started
             </button>
