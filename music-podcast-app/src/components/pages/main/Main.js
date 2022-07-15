@@ -1,14 +1,14 @@
 // TODO: import css files
-import "../../index.css";
+import "../../../index.css";
 import "./Main.css";
 
 // TODO: import other files
-import MainImgaes from "../../images/icons/freepik--Character--inject-31.svg";
-import FinishImage from "../../images/icons/Finish.svg";
-import Language from '../../images/icons/language.png';
-import { LoginModal } from "../modal/Modal";
-import {Login} from "../Autorizations/Login";
-import ButtonLogout from "../Button/Button";
+import MainImgaes from "../../../images/icons/freepik--Character--inject-31.svg";
+import FinishImage from "../../../images/icons/Finish.svg";
+import Language from '../../../images/icons/language.png';
+import { LoginModal } from "../../modal/Modal";
+import {Login} from "../../Autorizations/Login";
+import ButtonLogout from "../../Button/Button";
 import { useState } from "react";
 import {Link} from 'react-router-dom'
 import { Helmet } from 'react-helmet'

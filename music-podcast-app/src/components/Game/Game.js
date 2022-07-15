@@ -4,7 +4,7 @@ import "./Game.css";
 
 // TODO: import othre files
 import { useState, useEffect } from "react";
-import TimerClock from "../times/Timer";
+import TimerClock from '../times/Timer'
 import StopWatchClock from "../times/Stop.Watch";
 import CollectModals from "../childrenModalsWindow/CollectModals";
 

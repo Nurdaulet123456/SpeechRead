@@ -1,5 +1,5 @@
 // TODO: CSS files
-import "../../index.css";
+import "../../../index.css";
 import "./Translate.css";
 
 // ? import othres files

@@ -5,13 +5,9 @@ import "../../index.css";
 // TODO: import others file
 import { useState, useEffect } from "react";
 import { Header } from "../header/Header";
-import Main from "../main/Main";
-import Translate from "../Translate/Translate";
-import Profile from "../profile/Profile";
-import PrivateRoutes from "../utils/PrivateRoutes";
-import EditProfile from "../profile/Edit-Profile/Edit-Profile";
+import {Main, Speech, Profile, Translate, EditProfile} from '../pages'
+import PrivateRoutes from "../../utils/PrivateRoutes";
 import ErrorMessage from "../Page-404/Page404";
-import Speech from "../speechToText/Speech";
 import Spinner from "../spinner/Spinner";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
