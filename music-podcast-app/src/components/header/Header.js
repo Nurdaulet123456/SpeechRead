@@ -11,10 +11,20 @@ import {Login, Logout} from "../Autorizations/Login";
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
   const [loginModal, setloginModal] = useState(false);
+  const [header, setHeader] = useState(false);
 
+  const changeBackground = () => {
+    if (window.scrollY >= 10) {
+      setHeader(true)
+    } else {
+      setHeader(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground)
   return (
     <>
-      <div className="header">
+      <div className={header ? 'header active': 'header'}>
         <div className="container">
           <div className="header__inner">
           <div className="header__logo">

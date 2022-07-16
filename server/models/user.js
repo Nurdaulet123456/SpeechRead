@@ -11,7 +11,11 @@ const userSchema = new mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true},
     avatar: String
-}, { timestamps: true }) 
+}, {
+    timestamps: {
+        currentTime: () => Math.floor(Date.now() / 1000)
+    }
+}) 
 
 userSchema.methods.generateAuthToken = function() {
     const token = jwt.sign({_id: this._id}, process.env.JWTPRIVATEKEY, {expiresIn: '7d'})

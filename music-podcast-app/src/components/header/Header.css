@@ -11,6 +11,20 @@
     right: 0;
     z-index: 1000;
     box-shadow: 0px 15px 6px -20px #000;
+    transition: all .2s linear;
+}
+
+.header.active {
+    background-color: #24292f;
+    border: none;
+    box-shadow: none;
+    transition: all .2s linear;
+}
+
+.header.active .nav__link {
+    border: 1px solid #57606a;
+    color: white;
+    transition: all .2s linear;
 }
 
 .header__inner {
@@ -27,6 +41,11 @@
     font-weight: bold;
 }
 
+.header.active .header__title {
+    color: white;
+    transition: all .2s linear;
+}
+
 .nav__link {
     display: inline-block;
     background-color: transparent;
@@ -34,9 +53,7 @@
 
     padding: .9rem 3.5rem;
 
-    border: 1px solid rgba(235, 235, 235, 1);
-
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03);
+    border: 1px solid #d0d7de;
 
     border-radius: 6px;
 

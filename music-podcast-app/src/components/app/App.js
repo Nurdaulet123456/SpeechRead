@@ -5,7 +5,7 @@ import "../../index.css";
 // TODO: import others file
 import { useState, useEffect } from "react";
 import { Header } from "../header/Header";
-import {Main, Speech, Profile, Translate, EditProfile} from '../pages'
+import {Main, Speech, Profile, Translate, EditProfile, Extention} from '../pages'
 import PrivateRoutes from "../../utils/PrivateRoutes";
 import ErrorMessage from "../Page-404/Page404";
 import Spinner from "../spinner/Spinner";
@@ -33,6 +33,7 @@ function App() {
   const content = !loading ? <Contents /> : null;
   return (
     <>
+    <Header />
       {spinner}
       {content}
     </>
@@ -42,7 +43,6 @@ function App() {
 const Contents = () => {
   return (
     <>
-      <Header />
       <Router>
         <Switch>
           <Route exact path="/">
@@ -57,8 +57,11 @@ const Contents = () => {
           <PrivateRoutes exact path="/profile">
             <Profile />
           </PrivateRoutes>
-          <PrivateRoutes exact path="/edit/">
+          <PrivateRoutes exact path="/edit">
             <EditProfile />
+          </PrivateRoutes>
+          <PrivateRoutes exact path="/extention">
+            <Extention />
           </PrivateRoutes>
           <Route exact path="*">
             <ErrorMessage />
