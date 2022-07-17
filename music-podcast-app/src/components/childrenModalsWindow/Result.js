@@ -3,6 +3,13 @@ import HearBeat from "../../images/icons/heartbeat.svg";
 
 const Result = ({ note }) => {
   const [count, setCount] = useState(0);
+  const isNote = {
+    word: note.split(" ").length <= 1 ? 0 : note.split(" ").length,
+    page: note.split(" ").length > 100 ? setCount(count + 1) : count,
+    race: ((note.split(" ").length / 60) * 100).toFixed(0) <= 2
+    ? "0wpm"
+    : `${((note.split(" ").length / 60) * 100).toFixed(0)}wpm`
+  }
 
   return (
     <>
@@ -13,23 +20,21 @@ const Result = ({ note }) => {
           <p>
             Слова <br />
             <span>
-              {note.split(" ").length <= 1 ? 0 : note.split(" ").length}
+              {isNote.word}
             </span>
           </p>
 
           <p>
             Страница <br />
             <span>
-              {note.split(" ").length > 100 ? setCount(count + 1) : count}
+              {isNote.page}
             </span>
           </p>
 
           <p>
             Скорость <br />
             <span>
-              {((note.split(" ").length / 60) * 100).toFixed(0) <= 2
-                ? "0wpm"
-                : `${((note.split(" ").length / 60) * 100).toFixed(0)}wpm`}
+                {isNote.race}
             </span>
           </p>
         </div>
@@ -44,7 +49,7 @@ const Result = ({ note }) => {
         </div>
       </div>
       <div className="words">
-        <button>Смотреть словы</button>
+        <button>Смотреть словa</button>
       </div>
     </>
   );

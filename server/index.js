@@ -6,6 +6,7 @@ const con = require('./db')
 const userRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const updateProfile = require('./routes/updateProfile')
+const addResult = require('./routes/addResult')
 
 const app = express();
 
@@ -19,6 +20,7 @@ con()
 app.use('/api/users', userRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/updateProfile', updateProfile);
+app.use('/api/addresult', addResult);
 
 const port = process.env.PORT || 8080;
 

@@ -10,4 +10,4 @@ const resultSchema = new mongoose.Schema({
 
 const Result = mongoose.model('result', resultSchema)
 
-module.exports = {Result}
+module.exports = { Result }
