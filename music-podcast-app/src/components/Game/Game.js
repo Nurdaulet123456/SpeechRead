@@ -41,13 +41,13 @@ const Game = (props) => {
         <div className="container">
           <div className="game">
             <div className="timer">
-              <button onClick={hangleOpenTimerBlock}>
+              <button onClick={hangleOpenTimerBlock} className='btn'>
                 <h1 className={`timer__title ${!open ? '' : 'timer__btn'}`}>Timer</h1>
               </button>
             </div>
 
             <div className="stop__watch">
-              <button onClick={hangleOpenStopWatchTimerBlock}>
+              <button onClick={hangleOpenStopWatchTimerBlock} className='btn'>
                 <h1 className={`stop__watch-title ${!timerOpen ? '' : 'timer__btn'}`}>StopWatch</h1>
               </button>
             </div>

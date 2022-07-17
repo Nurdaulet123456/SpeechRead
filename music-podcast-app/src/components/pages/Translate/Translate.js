@@ -93,7 +93,7 @@ const Translate = () => {
                     readOnly="true"
                   ></textarea>
                   <div className="btn__right">
-                    <button className="btn" onClick={(e) => translate()}>
+                    <button className="button" onClick={(e) => translate()}>
                       Translate
                     </button>
                   </div>

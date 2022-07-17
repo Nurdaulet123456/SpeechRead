@@ -37,7 +37,7 @@ const ProfileData = () => {
           </li>
 
           <li>
-            <Link className="btn profile__btn" to={'/edit'}>Edit Profile</Link>
+            <Link className="button profile__btn" to={'/edit'}>Edit Profile</Link>
           </li>
 
           <li>

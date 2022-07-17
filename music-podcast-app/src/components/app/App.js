@@ -1,5 +1,4 @@
-// CSS
-import "./App.css";
+// TODO: CSS
 import "../../index.css";
 
 // TODO: import others file

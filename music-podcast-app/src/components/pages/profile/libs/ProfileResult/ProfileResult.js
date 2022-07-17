@@ -10,7 +10,7 @@ const ProfileResult = () => {
       <div className='profile__result'>
         <div className="profile__repo"></div>
          
-        <div className="content">
+        <div className="profile__content">
             <h3 className="result__btn activity">Contribution activity</h3>
 
             <div className="every__day-activity">

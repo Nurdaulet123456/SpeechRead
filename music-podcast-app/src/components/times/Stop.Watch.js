@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+
+
 const StopWatchClock = (props) => {
   const { 
   timerIsOpen,
@@ -50,19 +52,20 @@ const StopWatchClock = (props) => {
 
         <div className="text__center">
           <button
-            className="btn times__btn"
+            className="button times__btn s_clock"
             onClick={() => setRunning(true)}
           >
             Start
           </button>
           <button
-            className="btn times__btn"
+            className="button times__btn s_clock"
             onClick={() => setRunning(false)}
           >
             Stop
           </button>
           <button
-            className="btn times__btn"
+            className="button times__btn s_clock"
+            style={{marginRight: '0'}}
             onClick={() => setTimer(0)}
           >
             Reset

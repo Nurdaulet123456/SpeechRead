@@ -34,3 +34,11 @@ input[type=number] {
 input[type=number]:focus {
     outline: none;
 }
+
+.times__btn {
+  width: 40%;
+}
+
+.s_clock {
+  margin-right: 0.5rem;
+}

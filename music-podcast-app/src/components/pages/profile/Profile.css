@@ -24,7 +24,9 @@
 
 .result__btn {
     display: inline-block;
-
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     margin-right: 30px;
     font-size: 18px;
     font-weight: normal;

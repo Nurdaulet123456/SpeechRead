@@ -99,13 +99,13 @@ const TimerComponent = (props) => {
 
       <div className="text__center">
         <button
-          className="btn times__btn"
+          className="button times__btn"
         >
           Start
         </button>
 
         <button
-          className="btn times__btn"
+          className="button times__btn"
           onClick={stopTimer}
         >
           Stop

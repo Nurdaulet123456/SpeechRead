@@ -3,68 +3,39 @@ import "../../../index.css";
 import "./Main.css";
 
 // TODO: import other files
-import MainImgaes from "../../../images/icons/freepik--Character--inject-31.svg";
-import FinishImage from "../../../images/icons/Finish.svg";
-import Language from '../../../images/icons/language.png';
 import { LoginModal } from "../../modal/Modal";
-import {Login} from "../../Autorizations/Login";
-import ButtonLogout from "../../Button/Button";
+import { Login } from "../../Autorizations/Login";
 import { useState } from "react";
-import {Link} from 'react-router-dom'
-import { Helmet } from 'react-helmet'
-import LightSpeed  from 'react-reveal/LightSpeed'
+import { Helmet } from "react-helmet";
+import Video from "../../../assets/video.mp4";
 
 const Main = () => {
   const [loginModal, setloginModal] = useState(false);
 
   return (
     <>
-    <Helmet>
-      <title>Count Words</title>
-    </Helmet>
-      <div className="main">
-      <div className="container">
-      <div 
-        className="main__inner">
-          <div className="main__img">
-            <img className="img" src={MainImgaes} alt="" />
-          </div>
-
-          <div className="main__content">
-            
-            <LightSpeed right>
-              <h1 
-              className="main__title">
-                Сайт для скорость чтение и чтение по таймеру
-              </h1>
-              </LightSpeed>
-           {
-            localStorage.getItem('token') 
-            ?
-            <ButtonLogout /> 
-            :
-            <button 
-            className="btn submit__btn" 
-            onClick={() => setloginModal(true)}>
-              Get started
-            </button>
-          }
+      <Helmet>
+        <title>Count Words</title>
+      </Helmet>
+      <div className="main__page">
+        <video src={Video} loop autoPlay muted />
+        <div className="container">
+          <div className="main__inner">
+            <div className="content">
+              <h2 className="main__title">Welcome to CountWords!</h2>
+              <p className="main__subtitle">
+                CSS code-golfing game is here! Use your CSS skills to replicate
+                targets with smallest possible code. Feel free to check out the
+                targets below and put your CSS skills to test.
+              </p>
+            <button className="button get-started" onClick={() => setloginModal(true)}>Get Stared</button>
+            </div>
           </div>
         </div>
-
-        <img 
-        className="img finish__img" 
-        src={FinishImage} alt="" 
-        width={'800px'}/>
-        <Link className='language' to={'/translate'}>
-            <img src={Language} alt="" width={'35px'}/>
-        </Link>
       </div>
-    </div>
-
-    <LoginModal open={loginModal} onClose={() => setloginModal(false)}>
+      <LoginModal open={loginModal} onClose={() => setloginModal(false)}>
         <Login />
-    </LoginModal>
+      </LoginModal>
     </>
   );
 };
