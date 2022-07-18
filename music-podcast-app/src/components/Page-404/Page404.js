@@ -5,10 +5,16 @@ import './Error.message.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ErrorImg from './error.gif';
+import { Helmet } from 'react-helmet'
 
 const ErrorMessage = () => {
   return (
     <>
+    <Helmet>
+        <title>Page not found</title>
+    </Helmet>
+
+    
         <div className="error">
             <div className="container">
                 <div className="error__inner">

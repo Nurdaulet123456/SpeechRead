@@ -1,0 +1,7 @@
+.explanation-block {
+    width: 100%;
+    background-color: var(--color-bg-explanation-page-main);
+    color: white;
+
+    padding: 2rem 0;
+}

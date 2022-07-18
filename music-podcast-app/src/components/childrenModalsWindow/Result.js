@@ -3,6 +3,7 @@ import HearBeat from "../../images/icons/heartbeat.svg";
 
 const Result = ({ note }) => {
   const [count, setCount] = useState(0);
+  
   const isNote = {
     word: note.split(" ").length <= 1 ? 0 : note.split(" ").length,
     page: note.split(" ").length > 100 ? setCount(count + 1) : count,

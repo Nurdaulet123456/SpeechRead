@@ -1,14 +1,16 @@
 import React from 'react';
 
+import MainBlock from './explanation-main-block/Main.Block';
+import Explanation from './explanation/Explanation';
+import ExplanationBlock from './explanation-block/ExplanationBlock';
+
 const Extention = () => {
   return (
-    <div className="main">
-        <div className="container">
-            <div className="extention">
-                asd
-            </div>
-        </div>
-    </div>
+    <>
+      <MainBlock />
+      <Explanation />
+      <ExplanationBlock />
+    </>
   );
 }
 
