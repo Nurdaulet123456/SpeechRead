@@ -1,7 +1,57 @@
 .explanation-block {
-    width: 100%;
-    background-color: var(--color-bg-explanation-page-main);
-    color: white;
+  width: 100%;
+  background-color: var(--color-bg-explanation-page-main);
+  color: white;
 
-    padding: 2rem 0;
+  padding: 2rem 0 2rem 0;
+  position: relative !important;
+}
+
+.explanation-block__inner::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #ccc;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.explanation-block__block {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 6rem;
+}
+
+.explanation-block__content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.explanation-block__title {
+  font-size: 3.7rem;
+  font-weight: 800;
+  letter-spacing: -0.003em;
+
+  margin-bottom: 2rem;
+}
+
+.explanation-block__text {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #8193b2;
+}
+
+.explanation-block__text > ul {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content__img {
+    position: sticky;
+    top: 60px;
+    align-self: flex-start;
 }
