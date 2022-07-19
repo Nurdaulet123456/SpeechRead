@@ -52,6 +52,6 @@
 
 .content__img {
     position: sticky;
-    top: 60px;
+    top: 100px;
     align-self: flex-start;
 }

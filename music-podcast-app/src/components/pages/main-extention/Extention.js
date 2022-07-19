@@ -5,6 +5,7 @@ import Explanation from "./explanation/Explanation";
 import ExplanationBlock from "./explanation-block/ExplanationBlock";
 import ScrollTo from "../../scrollTo/ScrollTo";
 import GetStarted from "./getStarted/GetStarted";
+import ExplanationHeader from "./Explanation-Header";
 
 const Extention = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -28,6 +29,7 @@ const Extention = () => {
     <>
       <MainBlock />
       <Explanation />
+      <ExplanationHeader />
       <ExplanationBlock />
       <GetStarted />
       {showTopBtn && <ScrollTo click={goToTop} />}

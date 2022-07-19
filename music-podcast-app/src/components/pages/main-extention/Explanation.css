@@ -1,0 +1,43 @@
+.exlanation-header {
+    width: 100%;
+    position: sticky;
+    top: 60px;
+    z-index: 10000000;
+    background: white;
+}
+
+.explanation-header__inner {
+    height: 40px;
+}
+
+.explain-header__nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding-top: 10px;
+}
+
+.explanation-header__link {
+    color: black;
+    position: relative;
+    font-size: 1.7rem;
+}
+
+.explanation-header__link::after {
+    content: "";
+    display: block;
+    width: 30%;
+    height: .5px;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 2px;
+    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.explanation-header__link:hover::after {
+    width: 100%;
+    background-color: rgb(106, 219, 86);
+}
