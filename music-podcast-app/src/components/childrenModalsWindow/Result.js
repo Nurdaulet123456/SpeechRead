@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import useResult from "../hooks/useResult";
 import HearBeat from "../../images/icons/heartbeat.svg";
 
+
 const Result = ({ note }) => {
-  const [count, setCount] = useState(0);
-  
-  const isNote = {
-    word: note.split(" ").length <= 1 ? 0 : note.split(" ").length,
-    page: note.split(" ").length > 100 ? setCount(count + 1) : count,
-    race: ((note.split(" ").length / 60) * 100).toFixed(0) <= 2
-    ? "0wpm"
-    : `${((note.split(" ").length / 60) * 100).toFixed(0)}wpm`
-  }
+
+  const {w, p, r} = useResult(note);
 
   return (
     <>
@@ -21,21 +16,21 @@ const Result = ({ note }) => {
           <p>
             Слова <br />
             <span>
-              {isNote.word}
+              {w}
             </span>
           </p>
 
           <p>
             Страница <br />
             <span>
-              {isNote.page}
+              {p}
             </span>
           </p>
 
           <p>
             Скорость <br />
             <span>
-                {isNote.race}
+                {r}
             </span>
           </p>
         </div>
