@@ -1,17 +1,46 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import useResult from "../../hooks/useResult";
 
 
 let timeOutId = 0;
-const TimerComponent = (props) => {
-  const { timerData, stop, open} = props;
+const TimerComponent = ({ timerData, stop, open, note, stopCountdown}) => {
   const [countdownTime, setCountdownTime] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     hours: "00",
     minutes: "00",
     seconds: "00",
   });
+  const [error, setError] = useState('');
+  
+// !
+// ? Result, using Backend
 
-  // const audio = useRef();
+  const {w, p, r} = useResult(note)
+
+  let result = {
+    words: w,
+    page: p,
+    racer: r,
+    date: new Date().toDateString().split(' ').slice(1,3).join(' '),
+  }
+
+
+  const handleSubmitResult = async () => {
+    try {
+      const url = 'http://localhost:8080/api/addresult'
+      const {data: res} = await axios.post(url, result)
+      console.log(res);
+    } catch (error) {
+      if (error.response && 
+        error.response.status >= 400 &&
+        error.response.status <= 500) {
+          setError(error.response.data.message)
+        }
+    }
+  }
+
+ // ! 
 
   const calculateTimeLeft = () => {
     let currDate = new Date().getTime();
@@ -35,9 +64,10 @@ const TimerComponent = (props) => {
     if (timeOutId > 0) {
       clearTimeout(timeOutId);
     }
-    props.stopCountdown();
+    stopCountdown();
     stop();
     open();
+    handleSubmitResult();
   };
   useEffect(() => {
     let expectedTime = new Date().getTime();

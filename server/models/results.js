@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const resultSchema = new mongoose.Schema({
     words: {type: Number},
     page: {type: Number},
-    racer: {type: String}
-}, {
-    timestamps: true
+    racer: {type: String},
+    date: {type: String},
 })
 
 const Result = mongoose.model('result', resultSchema)

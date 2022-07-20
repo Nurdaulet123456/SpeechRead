@@ -29,8 +29,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-
-        <div className="border"></div>
       </div>
     </>
   );
