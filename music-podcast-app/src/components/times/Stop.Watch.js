@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-
+import useStopWatch from "../hooks/useStopWatch";
 
 const StopWatchClock = (props) => {
   const { 
@@ -9,28 +8,11 @@ const StopWatchClock = (props) => {
   startSpeech,
   isStopWatchResultOpen} = props
 
-  const [timer, setTimer] = useState(0);
-  const [running, setRunning] = useState(false);
-
-  useEffect(() => {
-    let interval;
-
-    if (running) {
-      interval = setInterval(() => {
-        setTimer((prev) => prev + 10);
-      }, 5);
-      handleListening();
-      startSpeech();
-    
-    } else if (!running) {
-      clearInterval(interval);
-      stopSpeech()
-      isStopWatchResultOpen();
-      console.log('asdasdasd');
-    }
-    
-    return () => clearInterval(interval);
-  }, [running]);
+  const {
+    timer, 
+    setRunning, 
+    setTimer
+  } = useStopWatch(handleListening, startSpeech, stopSpeech, isStopWatchResultOpen)
 
   if (!timerIsOpen) return null;
   return (
