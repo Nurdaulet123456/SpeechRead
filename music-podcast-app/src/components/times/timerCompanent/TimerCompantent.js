@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import useResult from "../../hooks/useResult";
 
-
 let timeOutId = 0;
-const TimerComponent = ({ timerData, stop, open, note, stopCountdown}) => {
+const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
   const [countdownTime, setCountdownTime] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     hours: "00",
     minutes: "00",
     seconds: "00",
   });
-  const [error, setError] = useState('');
-  
-// !
-// ? Result, using Backend
+  const [error, setError] = useState("");
 
-  const {w, p, r} = useResult(note)
+  // !
+  // ? Result, using Backend
+
+  const { w, p, r } = useResult(note);
 
   let result = {
     words: w,
     page: p,
     racer: r,
-    date: new Date().toDateString().split(' ').slice(1,3).join(' '),
-  }
-
+    date: new Date().toDateString().split(" ").slice(1, 3).join(" "),
+  };
 
   const handleSubmitResult = async () => {
     try {
-      const url = 'http://localhost:8080/api/addresult'
-      const {data: res} = await axios.post(url, result)
+      const url = "http://localhost:8080/api/addresult";
+      const { data: res } = await axios.post(url, result);
       console.log(res);
     } catch (error) {
-      if (error.response && 
+      if (
+        error.response &&
         error.response.status >= 400 &&
-        error.response.status <= 500) {
-          setError(error.response.data.message)
-        }
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
     }
-  }
+  };
 
- // ! 
+  // !
 
   const calculateTimeLeft = () => {
     let currDate = new Date().getTime();
@@ -128,16 +128,9 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown}) => {
       </div>
 
       <div className="text__center">
-        <button
-          className="button times__btn"
-        >
-          Start
-        </button>
+        <button className="button times__btn">Start</button>
 
-        <button
-          className="button times__btn"
-          onClick={stopTimer}
-        >
+        <button className="button times__btn" onClick={stopTimer}>
           Stop
         </button>
       </div>

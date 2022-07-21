@@ -18,7 +18,6 @@ const ProfileData = () => {
             src="https://via.placeholder.com/304x304"
             alt=""
           />
-          <div className="profile__status"></div>
         </div>
 
         {/* Profile Content */}
@@ -45,7 +44,7 @@ const ProfileData = () => {
           </li>
 
           <li>
-            <a className="link" href="asdsad.com" target={"_blank"}>
+            <a className="link" href="asdsad.com" target={"_blank"} style={{color: "black"}}>
               https://www.linkedin.com/in/nurdaulet-toregaliv-550657
             </a>
           </li>
