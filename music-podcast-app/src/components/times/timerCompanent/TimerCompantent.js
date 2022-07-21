@@ -26,7 +26,7 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
 
   const key = {
     keyWords: note,
-    data: new Date().getTime(),
+    data: new Date().getHours() + ":" + new Date().getMinutes(),
   };
 
   const handleSubmitResult = async () => {
@@ -99,21 +99,6 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
       clearTimeout(timeOutId);
     };
   });
-
-  // useEffect(() => {
-  //   if (
-  //     timeLeft.hours === 0 &&
-  //     timeLeft.minutes === 0 &&
-  //     timeLeft.seconds === 0
-  //   ) {
-  //     audio.current.play();
-  //     clearTimeout(timeOutId);
-  //   } else {
-  //     audio?.current?.load();
-  //   }
-
-  //   return () => clearTimeout(timeOutId);
-  // }, [timeLeft]);
 
   return (
     <div className="times">

@@ -5,8 +5,7 @@ import "../../index.css";
 import { Modal, LoginModal } from "../modal/Modal";
 import { useState } from "react";
 import Register from "../Autorizations/Register";
-import {Login, Logout} from "../Autorizations/Login";
-
+import { Login, Logout } from "../Autorizations/Login";
 
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -15,33 +14,36 @@ const Header = () => {
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
-      setHeader(true)
+      setHeader(true);
     } else {
-      setHeader(false)
+      setHeader(false);
     }
-  }
+  };
 
-  window.addEventListener('scroll', changeBackground)
+  window.addEventListener("scroll", changeBackground);
   return (
     <>
-      <div className={header ? 'header active': 'header'}>
+      <div className={header ? "header active" : "header"}>
         <div className="container">
           <div className="header__inner">
-          <div className="header__logo">
-             <h2 className="header__title">CountWords</h2>
+            <div className="header__logo">
+              <h2 className="header__title">CountWords</h2>
             </div>
-              {
-                localStorage.getItem('token') ?
-                <Logout /> :
-                <nav className="nav">
+            {localStorage.getItem("token") ? (
+              <Logout />
+            ) : (
+              <nav className="nav">
                 <button className="nav__link" onClick={() => setisOpen(true)}>
                   Регистрация
                 </button>
-                <button className="nav__link" onClick={() => setloginModal(true)}>
+                <button
+                  className="nav__link"
+                  onClick={() => setloginModal(true)}
+                >
                   Войти
                 </button>
               </nav>
-              }
+            )}
           </div>
         </div>
       </div>
@@ -57,6 +59,4 @@ const Header = () => {
   );
 };
 
-
-
-export {Header};
+export { Header };

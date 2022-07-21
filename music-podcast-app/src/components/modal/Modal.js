@@ -27,16 +27,16 @@ const LoginModal = ({ open, children, onClose }) => {
   if (!open) return null;
   return ReactDom.createPortal(
     <div>
-        <div className="modal">
-          <div className="modal__inner">
-            <div className="modal__content">
-              <button className="close__btn" onClick={onClose}>
-                <img src={CloseImg} alt="" />
-              </button>
-              {children}
-            </div>
+      <div className="modal">
+        <div className="modal__inner">
+          <div className="modal__content">
+            <button className="close__btn" onClick={onClose}>
+              <img src={CloseImg} alt="" />
+            </button>
+            {children}
           </div>
         </div>
+      </div>
     </div>,
 
     document.getElementById("portal")

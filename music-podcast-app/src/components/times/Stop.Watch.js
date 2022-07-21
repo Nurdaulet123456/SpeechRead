@@ -1,20 +1,19 @@
 import React from "react";
 import useStopWatch from "../hooks/useStopWatch";
 
-const StopWatchClock = ({ 
+const StopWatchClock = ({
   timerIsOpen,
   stopSpeech,
   handleListening,
   startSpeech,
   isStopWatchResultOpen,
 }) => {
-
-  const {
-    timer, 
-    setRunning, 
-    setTimer  
-  } = useStopWatch(handleListening, startSpeech, stopSpeech, isStopWatchResultOpen)
-
+  const { timer, setRunning, setTimer } = useStopWatch(
+    handleListening,
+    startSpeech,
+    stopSpeech,
+    isStopWatchResultOpen
+  );
 
   if (!timerIsOpen) return null;
   return (
@@ -49,7 +48,7 @@ const StopWatchClock = ({
           </button>
           <button
             className="button times__btn s_clock"
-            style={{marginRight: '0'}}
+            style={{ marginRight: "0" }}
             onClick={() => setTimer(0)}
           >
             Reset

@@ -8,12 +8,12 @@ import KeyWord from "./libs/ProfileResult/KeyWord";
 import { Helmet } from "react-helmet";
 
 const Profile = () => {
-  let user = JSON.parse(localStorage.getItem('user-info'))
+  let user = JSON.parse(localStorage.getItem("user-info"));
   return (
     <>
-    <Helmet>
-      <title>{user && `${user.username} (${user.name})`}</title>
-    </Helmet>
+      <Helmet>
+        <title>{user && `${user.username} (${user.name})`}</title>
+      </Helmet>
 
       <div className="main profile">
         <div className="container">

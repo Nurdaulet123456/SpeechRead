@@ -7,14 +7,14 @@ import "./Times.css";
 
 const CountdownComponent = (props) => {
   const {
-    isOpen, 
-    stopSpeech, 
-    isNote, 
-    handleListening, 
+    isOpen,
+    stopSpeech,
+    isNote,
+    handleListening,
     startSpeech,
-    isResultOpen
+    isResultOpen,
   } = props;
-  
+
   const [isTimerRunning, setTimerRunning] = useState(false);
 
   // ! Timer time

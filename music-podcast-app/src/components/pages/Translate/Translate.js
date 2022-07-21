@@ -7,15 +7,8 @@ import { Helmet } from "react-helmet";
 import useTranslate from "../../hooks/useTranslate";
 
 const Translate = () => {
-
-  const {
-    option, 
-    setFrom, 
-    setInput, 
-    setTo, 
-    output,
-    translate
-  } = useTranslate();
+  const { option, setFrom, setInput, setTo, output, translate } =
+    useTranslate();
 
   return (
     <>

@@ -7,7 +7,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProfileData = () => {
-  let user = JSON.parse(localStorage.getItem('user-info'))
+  let user = JSON.parse(localStorage.getItem("user-info"));
   return (
     <>
       <div className="profile__data">
@@ -36,7 +36,9 @@ const ProfileData = () => {
           </li>
 
           <li>
-            <Link className="button profile__btn" to={'/edit'}>Edit Profile</Link>
+            <Link className="button profile__btn" to={"/edit"}>
+              Edit Profile
+            </Link>
           </li>
 
           <li>
@@ -44,7 +46,12 @@ const ProfileData = () => {
           </li>
 
           <li>
-            <a className="link" href="asdsad.com" target={"_blank"} style={{color: "black"}}>
+            <a
+              className="link"
+              href="asdsad.com"
+              target={"_blank"}
+              style={{ color: "black" }}
+            >
               https://www.linkedin.com/in/nurdaulet-toregaliv-550657
             </a>
           </li>

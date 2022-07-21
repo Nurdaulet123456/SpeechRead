@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const InputComponent = (props) => {
-  const {handle, start} = props;
+  const { handle, start } = props;
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -51,18 +51,11 @@ const InputComponent = (props) => {
       </div>
 
       <div className="text__center">
-        <button
-          className="button times__btn"
-          onClick={startTimer}
-        >
+        <button className="button times__btn" onClick={startTimer}>
           Start
         </button>
 
-        <button
-          className="button times__btn"
-        >
-          Stop
-        </button>
+        <button className="button times__btn">Stop</button>
       </div>
     </div>
   );

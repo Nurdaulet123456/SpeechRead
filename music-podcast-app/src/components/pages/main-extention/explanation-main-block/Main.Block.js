@@ -2,16 +2,16 @@ import "../../../../index.css";
 import "./MainBlock.css";
 
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const MainBlock = () => {
   return (
     <>
       <div className="main-block">
         <div className="container">
-        <div class="arrow bounce">
+          <div class="arrow bounce">
             <li class="fa fa-arrow-down fa-2x" href="#"></li>
-        </div>
+          </div>
           <div className="main-block__inner">
             <div className="main-block__content">
               <h3>
@@ -22,7 +22,9 @@ const MainBlock = () => {
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old.
               </p>
-              <Link className="main-block__btn" to={'/game'}>Go to game</Link>
+              <Link className="main-block__btn" to={"/game"}>
+                Go to game
+              </Link>
             </div>
             <div className="cover">
               <div className="book">
@@ -36,7 +38,7 @@ const MainBlock = () => {
                 <label for="page-2" className="book__page book__page--4">
                   <div className="page__content">
                     <div className="page__content-blockquote">
-                      <Link className="main-block__btn go__game" to={'/game'}>
+                      <Link className="main-block__btn go__game" to={"/game"}>
                         Go to game
                       </Link>
                     </div>

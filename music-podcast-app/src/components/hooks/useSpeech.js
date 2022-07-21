@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 
 const SpeechRecognition =
-window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechRecognition || window.webkitSpeechRecognition;
 const mic = new SpeechRecognition();
 
 mic.continuous = true;
 mic.interimResults = true;
 mic.lang = "en-US";
 
-
 const useSpeech = () => {
-    const [isListening, setIsListening] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const [note, setNote] = useState("");
 
   useEffect(() => {
@@ -45,14 +44,13 @@ const useSpeech = () => {
     setIsListening(false);
   };
 
-
   return {
     note,
     isListening,
     stop,
     start,
-    handleListen
-  }
-}
+    handleListen,
+  };
+};
 
 export default useSpeech;

@@ -24,32 +24,33 @@ const ProfileResult = () => {
         <div className="profile__content">
           <h3 className="result__btn activity">Contribution activity</h3>
 
-          {result && result?.map((item, id) => (
-            <div className="every__day-activity" key={id}>
-              <h3 className="date">
-                <span className="month">{item.date}</span>
-              </h3>
+          {result &&
+            result?.map((item, id) => (
+              <div className="every__day-activity" key={id}>
+                <h3 className="date">
+                  <span className="month">{item.date}</span>
+                </h3>
 
-              <div className="TimelineItem">
-                <div className="TimelineItem-body">
-                  <details
-                    open={"open"}
-                    className="Details-element details-reset"
-                  >
-                    <summary
-                      className="btn-link f4 Link--muted no-underline lh-condensed width-full"
-                      role={"button"}
+                <div className="TimelineItem">
+                  <div className="TimelineItem-body">
+                    <details
+                      open={"open"}
+                      className="Details-element details-reset"
                     >
-                      <span className="color-fg-default ws-normal text-left">
-                        Сегодня учил {item.words} слов и {item.page} страниц и
-                        скорость {item.racer}
-                      </span>
-                    </summary>
-                  </details>
+                      <summary
+                        className="btn-link f4 Link--muted no-underline lh-condensed width-full"
+                        role={"button"}
+                      >
+                        <span className="color-fg-default ws-normal text-left">
+                          Сегодня учил {item.words} слов и {item.page} страниц и
+                          скорость {item.racer}
+                        </span>
+                      </summary>
+                    </details>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>
