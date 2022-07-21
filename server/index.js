@@ -8,6 +8,7 @@ const authRouter = require('./routes/auth')
 const updateProfile = require('./routes/updateProfile')
 const addResult = require('./routes/addResult')
 const getAllResult = require('./routes/getAllResult')
+const keyWords = require('./routes/keyWords')
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/updateProfile', updateProfile);
 app.use('/api/addresult', addResult);
 app.use('/api/getAllResult', getAllResult);
+app.use('/api/createKeyWords', keyWords);
 
 const port = process.env.PORT || 8080;
 
