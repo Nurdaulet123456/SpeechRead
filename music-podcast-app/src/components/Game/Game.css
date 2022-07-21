@@ -66,3 +66,9 @@ outline: none;
 .timer__btn {
     text-decoration: underline;
 }
+
+.show__btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

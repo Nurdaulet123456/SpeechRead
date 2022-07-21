@@ -24,7 +24,7 @@ const ProfileResult = () => {
         <div className="profile__content">
           <h3 className="result__btn activity">Contribution activity</h3>
 
-          {result.map((item, id) => (
+          {result && result?.map((item, id) => (
             <div className="every__day-activity" key={id}>
               <h3 className="date">
                 <span className="month">{item.date}</span>

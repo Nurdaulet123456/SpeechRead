@@ -71,8 +71,13 @@
 
 /* Key Word */
 
+.content__key {
+    position: static;
+}
+
 .profile__result.key__word {
     border: none;
+    color: black;
 }
 
 .search__key-word {
@@ -81,24 +86,13 @@
     position: relative;
 }
 
-.search__key-word::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #D4D4D4;
-
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-}
 
 .search__key-word > input {
     width: 100%;
     max-width: 100%;
     border: 1px solid #D4D4D4;
     border-radius: 5px;
-    padding: 0 0 0 1.5rem;
+    padding: 1rem 0 1rem 1.5rem;
     margin-right: 1.5rem;
     background-color: transparent;
 }
@@ -110,6 +104,7 @@
 
 
 .key__date {
+    color: black;
    padding: 1.5rem 0 ;
 }
 

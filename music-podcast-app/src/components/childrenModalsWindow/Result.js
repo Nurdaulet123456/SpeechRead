@@ -1,6 +1,5 @@
 import React from "react";
 import useResult from "../hooks/useResult";
-import HearBeat from "../../images/icons/heartbeat.svg";
 
 
 const Result = ({ note }) => {
@@ -34,18 +33,6 @@ const Result = ({ note }) => {
             </span>
           </p>
         </div>
-
-        <div className="heartbeat">
-          <img
-            className="img heartbeat"
-            src={HearBeat}
-            alt=""
-            style={{ width: "100px", height: "100px" }}
-          />
-        </div>
-      </div>
-      <div className="words">
-        <button>Смотреть словa</button>
       </div>
     </>
   );

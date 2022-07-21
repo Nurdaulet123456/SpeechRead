@@ -3,7 +3,8 @@ import "./Profile.css";
 
 // ? import other file
 import ProfileData from "./libs/ProfileData/ProfileData";
-import ProfileResult from "./libs/ProfileResult/ProfileResult";
+// import ProfileResult from "./libs/ProfileResult/ProfileResult";
+import KeyWord from "./libs/ProfileResult/KeyWord";
 import { Helmet } from "react-helmet";
 
 const Profile = () => {
@@ -21,11 +22,11 @@ const Profile = () => {
 
             <div className="content__link">
               <nav className="nav">
-                <button className="result__btn active">Результаты</button>
-                <button className="result__btn">Ключевые слова</button>
+                <button className="result__btn">Результаты</button>
+                <button className="result__btn active">Ключевые слова</button>
                 <button className="result__btn">Рекорды</button>
               </nav>
-              <ProfileResult />
+              <KeyWord />
             </div>
           </div>
         </div>
