@@ -24,18 +24,10 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     date: new Date().toDateString().split(" ").slice(1, 3).join(" "),
   };
 
-  const key = {
-    keyWords: note,
-    data: new Date().getHours() + ":" + new Date().getMinutes(),
-  };
-
   const handleSubmitResult = async () => {
     try {
-      const url = "http://localhost:8080/api/addresult";
-      const keyurl = "http://localhost:8080/api/createKeyWords";
+      const url = "http://localhost:8080/api/result";
       const { data: res } = await axios.post(url, result);
-      const { data: keyWords } = await axios.post(keyurl, key);
-      console.log(keyWords);
       console.log(res);
     } catch (error) {
       if (

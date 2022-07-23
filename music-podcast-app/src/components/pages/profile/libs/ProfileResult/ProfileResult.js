@@ -11,7 +11,7 @@ const ProfileResult = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:8080/api/getAllResult")
+        .get("http://localhost:8080/api/result")
         .then((res) => setResult(res.data));
     } catch (error) {
       console.log(error);

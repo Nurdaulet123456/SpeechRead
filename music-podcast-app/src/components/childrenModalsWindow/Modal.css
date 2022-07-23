@@ -1,0 +1,9 @@
+.key__words {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.key__words.active {
+    color: yellow;
+}

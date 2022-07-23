@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Result } = require('../models/results');
 
+// ! Create Result 
+
 router.post('/' , async (req, res) => {
 
  const newPost = new Result({
@@ -16,5 +18,19 @@ router.post('/' , async (req, res) => {
     res.status(500).json(err);
   }
 })
+
+// ! Get all Results 
+
+router.get('/', async (req, res) => {
+  try {
+      let result = await Result.find();
+
+      res.status(200).json(result)
+  } catch (error) {
+      res.status(500).json(error)
+  }
+});
+
+// ! Get timeline results
 
 module.exports = router;

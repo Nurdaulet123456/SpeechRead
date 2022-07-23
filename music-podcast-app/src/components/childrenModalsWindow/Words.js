@@ -1,4 +1,7 @@
+import "./Modal.css";
+
 import React from "react";
+import axios from "axios";
 
 const style = {
   textAlign: "center",
@@ -7,6 +10,27 @@ const style = {
 };
 
 const Words = ({ isNote }) => {
+  let note = {
+    keyWords: isNote.split(" "),
+    data: new Date().getHours() + ":" + new Date().getMinutes(),
+  };
+
+  const wordAddHandler = async (item) => {
+    note = {
+      ...note,
+      keyWords: item,
+    };
+    if (note) {
+      try {
+        const keyurl = "http://localhost:8080/api/keywords";
+        const { data: keyWords } = await axios.post(keyurl, note);
+        console.log(keyWords);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <>
       <div className="modal__header">
@@ -15,7 +39,15 @@ const Words = ({ isNote }) => {
             No words...
           </p>
         ) : (
-          isNote
+          note.keyWords?.map((item, i) => (
+            <button
+              key={i}
+              className={`key__words`}
+              onClick={() => wordAddHandler(item)}
+            >
+              {item}
+            </button>
+          ))
         )}
       </div>
     </>

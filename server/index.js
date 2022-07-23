@@ -6,8 +6,7 @@ const con = require('./db')
 const userRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const updateProfile = require('./routes/updateProfile')
-const addResult = require('./routes/addResult')
-const getAllResult = require('./routes/getAllResult')
+const Result = require('./routes/Result')
 const keyWords = require('./routes/keyWords')
 
 const app = express();
@@ -22,9 +21,8 @@ con()
 app.use('/api/users', userRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/updateProfile', updateProfile);
-app.use('/api/addresult', addResult);
-app.use('/api/getAllResult', getAllResult);
-app.use('/api/createKeyWords', keyWords);
+app.use('/api/result', Result);
+app.use('/api/keywords', keyWords);
 
 const port = process.env.PORT || 8080;
 
