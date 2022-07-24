@@ -7,6 +7,11 @@ import axios from "axios";
 
 const ProfileResult = () => {
   const [result, setResult] = useState([]);
+  const [showMore, setShowMore] = useState(false);
+
+  const handleClickShowMore = () => {
+    setShowMore(true);
+  };
 
   useEffect(() => {
     try {
@@ -18,6 +23,7 @@ const ProfileResult = () => {
     }
   }, []);
 
+  const numberOfResults = showMore ? result.length : 5;
   return (
     <>
       <div className="profile__result">
@@ -25,7 +31,7 @@ const ProfileResult = () => {
           <h3 className="result__btn activity">Contribution activity</h3>
 
           {result &&
-            result?.map((item, id) => (
+            result.slice(0, numberOfResults)?.map((item, id) => (
               <div className="every__day-activity" key={id}>
                 <h3 className="date">
                   <span className="month">{item.date}</span>
@@ -52,6 +58,11 @@ const ProfileResult = () => {
               </div>
             ))}
         </div>
+      </div>
+      <div className="button_block">
+        <button className="button" onClick={() => handleClickShowMore()}>
+          Show More
+        </button>
       </div>
     </>
   );

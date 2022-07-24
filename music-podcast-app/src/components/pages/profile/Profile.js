@@ -2,6 +2,7 @@
 import "./Profile.css";
 
 // ? import other file
+import React, {memo} from "react";
 import ProfileData from "./libs/ProfileData/ProfileData";
 import ProfileResult from "./libs/ProfileResult/ProfileResult";
 import KeyWord from "./libs/ProfileResult/KeyWord";
@@ -66,4 +67,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default memo(Profile);
