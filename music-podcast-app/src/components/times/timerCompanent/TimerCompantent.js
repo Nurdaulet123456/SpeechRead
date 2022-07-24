@@ -10,7 +10,6 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     minutes: "00",
     seconds: "00",
   });
-  const [error, setError] = useState("");
 
   // !
   // ? Result, using Backend
@@ -30,13 +29,7 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
       const { data: res } = await axios.post(url, result);
       console.log(res);
     } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
+        console.log(error);
     }
   };
 
