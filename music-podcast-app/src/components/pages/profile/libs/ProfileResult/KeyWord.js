@@ -2,7 +2,7 @@
 import "./Repo.css";
 
 // ? import other files
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useDeferredValue } from "react";
 import axios from "axios";
 
 const KeyWord = () => {
@@ -11,7 +11,7 @@ const KeyWord = () => {
     searchTab: "",
   });
   const [showMore, setShowMore] = useState(false);
-
+  const searchKey = useDeferredValue(search.searchTab)
   useEffect(() => {
     try {
       axios.get("http://localhost:8080/api/keywords").then((res) => {
@@ -32,7 +32,7 @@ const KeyWord = () => {
     setShowMore(true);
   };
 
-  const numberOfKey = showMore ? key.length : 2;
+  const numberOfKey = showMore ? key.length : 5;
 
   return (
     <>
@@ -41,7 +41,7 @@ const KeyWord = () => {
           <input
             type="text"
             name="search"
-            value={search.searchTab}
+            value={searchKey}
             placeholder="Find a word..."
             onChange={(event) => changeHandler(event)}
           />
@@ -49,14 +49,14 @@ const KeyWord = () => {
         </div>
 
         <div className="content__key">
-          {key.length > 0 &&
+          {key.length > 0 ?
             key
               .slice(0, numberOfKey)
               ?.filter(
                 (i) =>
                   i.keyWords
                     ?.toLowerCase()
-                    .includes(search.searchTab.toLowerCase()) || ""
+                    .includes(searchKey.toLowerCase()) || ""
               )
               ?.map((item, id) => (
                 <div className="key__date" key={id}>
@@ -68,7 +68,11 @@ const KeyWord = () => {
                     <span className="month">{item.data}</span>
                   </div>
                 </div>
-              ))}
+              ))
+            :
+            (
+              <p>No Words</p>
+            )}
         </div>
         <div className="button_block">
           <button className="button" onClick={() => handleClickShowMore()}>
