@@ -49,7 +49,7 @@ const KeyWord = () => {
         </div>
 
         <div className="content__key">
-          {key.length > 0 ?
+          {
             key
               .slice(0, numberOfKey)
               ?.filter(
@@ -68,11 +68,7 @@ const KeyWord = () => {
                     <span className="month">{item.data}</span>
                   </div>
                 </div>
-              ))
-            :
-            (
-              <p>No Words</p>
-            )}
+              ))}
         </div>
         <div className="button_block">
           <button className="button" onClick={() => handleClickShowMore()}>

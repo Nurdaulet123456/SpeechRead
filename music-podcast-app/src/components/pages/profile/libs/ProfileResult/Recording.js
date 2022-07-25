@@ -3,7 +3,11 @@ import React from 'react';
 const Recording = () => {
   return (
     <>
-        asdasd
+        <div className="profile__result recording">
+            <div className="recording__content">
+                Слова: 360
+            </div>
+        </div>
     </>
   );
 }
