@@ -11,8 +11,7 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     seconds: "00",
   });
 
-  // !
-  // ? Result, using Backend
+  // ! Result, Record using Backend
 
   const { w, p, r } = useResult(note);
 
@@ -23,11 +22,18 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     date: new Date().toDateString().split(" ").slice(1, 3).join(" "),
   };
 
+  let record = {
+    record: w
+  };
+
   const handleSubmitResult = async () => {
     try {
       const url = "http://localhost:8080/api/result";
+      const recordurl = 'http://localhost:8080/api/records'
       const { data: res } = await axios.post(url, result);
+      const { data: recording } = await axios.post(recordurl, record);
       console.log(res);
+      console.log(recording);
     } catch (error) {
         console.log(error);
     }
@@ -35,6 +41,8 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
 
   // !
 
+  // ! Calculate Timer
+  
   const calculateTimeLeft = () => {
     let currDate = new Date().getTime();
     let difference = countdownTime - currDate;
