@@ -8,6 +8,7 @@ const authRouter = require('./routes/auth')
 const updateProfile = require('./routes/updateProfile')
 const Result = require('./routes/Result')
 const keyWords = require('./routes/keyWords')
+const recording = require('./routes/recording');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/updateProfile', updateProfile);
 app.use('/api/result', Result);
 app.use('/api/keywords', keyWords);
+app.use('/api/records', recording);
 
 const port = process.env.PORT || 8080;
 
