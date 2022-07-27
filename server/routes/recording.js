@@ -9,11 +9,6 @@ router.post('/', async (req, res) => {
         const newRecording = new Recording({
             record: req.body.record
         })
-
-        if (newRecording.$isEmpty) {
-            res.status(500).send({message: 'Record not found'})
-        }
-
         const saveRecording = await newRecording.save();
         res.status(200).json(saveRecording);
 
@@ -27,19 +22,11 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const SortingOfRecords = await Recording
-                                        .find({}, {record: req.body.record})
-                                        .sort({record: -1});
+                                        .find()
+                                        .sort({record: -1});                                
 
-        if (SortingOfRecords.length === 0 ) {
-            res.status(500).send({message: 'Record not found thats empty'});
-        }                                
-
-        
-        const giveOneData = await SortingOfRecords.findOne({
-            record: req.body.record
-        })[0];
-
-        res.status(200).json(giveOneData);
+                                        console.log(SortingOfRecords);
+        res.status(200).json(SortingOfRecords);
     } catch (error) {
         res.status(500).json(error)
     }
