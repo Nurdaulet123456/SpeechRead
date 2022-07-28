@@ -59,7 +59,7 @@ const Contents = () => {
           <PrivateRoutes exact path="/edit">
             <EditProfile />
           </PrivateRoutes>
-          <PrivateRoutes exact path="/extention">
+          <PrivateRoutes exact path="/explanation">
             <Extention />
           </PrivateRoutes>
           <Route exact path="*">

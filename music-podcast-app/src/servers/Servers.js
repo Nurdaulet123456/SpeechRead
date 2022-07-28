@@ -1,8 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
 
 const Servers = () => {
-  const [res, setResult] = useState([]);
 
   const createResultAndKeys = async (url, result) => {
     try {
@@ -13,7 +11,7 @@ const Servers = () => {
     }
   };
 
-  const getAllResultAndKeys = async (url) => {
+  const getAllResultAndKeys = async (url, setResult) => {
     try {
       axios.get(url).then((res) => setResult(res.data));
     } catch (error) {}
@@ -22,7 +20,6 @@ const Servers = () => {
   return {
     createResultAndKeys,
     getAllResultAndKeys,
-    res,
   };
 };
 

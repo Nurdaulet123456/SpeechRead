@@ -6,22 +6,26 @@ const Recording = () => {
   const [record, setRecord] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/records')
-    .then(res => setRecord(res.data))
+      try {
+        axios.get('http://localhost:8080/api/records')
+        .then(res => setRecord(res.data))
+      } catch (error) {
+        console.log(error);
+      }
   }, [])
 
-  // ! Give Maximum keys in objects arrays
-  
-  const MaxKeyWord = (record) => { 
-    return Math.max.apply(Math, record.map((max) => {
-      return max.record
+  // ! Give Maximum keys
+  const maximumRecords = (records) => {
+    return Math.max.apply(Math, records.map(item => {
+      return item.record
     }))
   }
+  
   return (
     <>
         <div className="profile__result recording">
             <div className="recording__content">
-                Слова: {MaxKeyWord(record)}
+                Слова: {maximumRecords(record)}
             </div>
         </div>
     </>
