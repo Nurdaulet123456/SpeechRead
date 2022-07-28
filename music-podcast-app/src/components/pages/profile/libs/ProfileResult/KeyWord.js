@@ -3,7 +3,7 @@ import "./Repo.css";
 
 // ? import other files
 import React, { useState, useEffect, useDeferredValue } from "react";
-import axios from "axios";
+import Servers from "../../../../../servers/Servers";
 
 const KeyWord = () => {
   const [key, setKey] = useState([]);
@@ -12,14 +12,10 @@ const KeyWord = () => {
   });
   const [showMore, setShowMore] = useState(false);
   const searchKey = useDeferredValue(search.searchTab)
+  const {getAllResultAndKeys} = Servers();
+  
   useEffect(() => {
-    try {
-      axios.get("http://localhost:8080/api/keywords").then((res) => {
-        setKey(res.data);
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    getAllResultAndKeys('http://localhost:8080/api/keywords', setKey)
   }, []);
 
   const changeHandler = (event) => {

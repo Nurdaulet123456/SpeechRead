@@ -1,17 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import Servers from '../../../../../servers/Servers';
 
 const Recording = () => {
-
   const [record, setRecord] = useState([])
-
+  const {getAllResultAndKeys} = Servers()
+  
   useEffect(() => {
-      try {
-        axios.get('http://localhost:8080/api/records')
-        .then(res => setRecord(res.data))
-      } catch (error) {
-        console.log(error);
-      }
+     getAllResultAndKeys('http://localhost:8080/api/records', setRecord);
   }, [])
 
   // ! Give Maximum keys
@@ -20,7 +15,6 @@ const Recording = () => {
       return item.record
     }))
   }
-  
   return (
     <>
         <div className="profile__result recording">

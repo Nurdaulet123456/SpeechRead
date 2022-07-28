@@ -22,10 +22,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const SortingOfRecords = await Recording
-                                        .find()
-                                        .sort({record: -1});                                
+                                        .find().sort({record: -1})                               
 
-                                        console.log(SortingOfRecords);
         res.status(200).json(SortingOfRecords);
     } catch (error) {
         res.status(500).json(error)

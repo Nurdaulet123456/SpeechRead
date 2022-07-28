@@ -1,7 +1,7 @@
 import "./Modal.css";
 
 import React from "react";
-import axios from "axios";
+import Servers from "../../servers/Servers";
 
 const style = {
   textAlign: "center",
@@ -15,19 +15,15 @@ const Words = ({ isNote }) => {
     data: new Date().getHours() + ":" + new Date().getMinutes(),
   };
 
+  const {createResultAndKeys} = Servers()
+
   const wordAddHandler = async (item) => {
     note = {
       ...note,
       keyWords: item,
     };
     if (note) {
-      try {
-        const keyurl = "http://localhost:8080/api/keywords";
-        const { data: keyWords } = await axios.post(keyurl, note);
-        console.log(keyWords);
-      } catch (error) {
-        console.log(error);
-      }
+      createResultAndKeys('http://localhost:8080/api/keywords', note);
     }
   };
 

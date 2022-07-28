@@ -1,41 +1,8 @@
-import { useState } from "react";
-import axios from "axios";
+import useAuth from "../hooks/useAuth";
 import "./Autorization.css";
 
 const Login = () => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [error, setError] = useState("");
-
-  const handleChange = ({ currentTarget: input }) => {
-    setData({
-      ...data,
-      [input.name]: input.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const url = "http://localhost:8080/api/auth";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("user-info", JSON.stringify(res.users));
-      localStorage.setItem("token", res.data);
-      window.location = "/explanation";
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
-  };
+  const {data, error, handleChange, handleSubmit} = useAuth();
 
   return (
     <>

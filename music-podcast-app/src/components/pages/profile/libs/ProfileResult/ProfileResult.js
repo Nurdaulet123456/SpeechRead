@@ -3,24 +3,18 @@ import "./Repo.css";
 
 // ? Import other files
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Servers from "../../../../../servers/Servers";
 
 const ProfileResult = () => {
   const [result, setResult] = useState([]);
   const [showMore, setShowMore] = useState(false);
-
+  const {getAllResultAndKeys} = Servers()
   const handleClickShowMore = () => {
     setShowMore(true);
   };
 
   useEffect(() => {
-    try {
-      axios
-        .get("http://localhost:8080/api/result")
-        .then((res) => setResult(res.data));
-    } catch (error) {
-      console.log(error);
-    }
+    getAllResultAndKeys('http://localhost:8080/api/result', setResult)
   }, []);
 
   const numberOfResults = showMore ? result.length : 5;

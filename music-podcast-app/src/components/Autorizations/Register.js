@@ -1,7 +1,7 @@
 import "./Autorization.css";
 
 import { useState } from "react";
-import axios from "axios";
+import Servers from "../../servers/Servers";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -12,6 +12,8 @@ const Register = () => {
   });
   const [error, setError] = useState("");
 
+  const {createResultAndKeys} = Servers()
+
   const handleChange = ({ currentTarget: input }) => {
     setData({
       ...data,
@@ -21,20 +23,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const url = "http://localhost:8080/api/users";
-      const { data: res } = await axios.post(url, data);
-      console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
+    createResultAndKeys('http://localhost:8080/api/users', data, setError)
   };
 
   return (
