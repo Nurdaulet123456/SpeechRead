@@ -6,6 +6,7 @@ import ExplanationBlock from "./explanation-block/ExplanationBlock";
 import ScrollTo from "../../scrollTo/ScrollTo";
 import GetStarted from "./getStarted/GetStarted";
 import ExplanationHeader from "./Explanation-Header";
+import { Helmet } from 'react-helmet'
 
 const Extention = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -27,6 +28,9 @@ const Extention = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Explanation</title>
+    </Helmet>
       <MainBlock />
       <Explanation />
       <ExplanationHeader />
