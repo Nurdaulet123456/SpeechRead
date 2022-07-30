@@ -15,7 +15,7 @@ const MainBlock = () => {
           <div className="main-block__inner">
             <div className="main-block__content">
               <h3>
-                Where the world <br /> builds software
+                Where the world builds software
               </h3>
               <p>
                 Contrary to popular belief, Lorem Ipsum is not simply random

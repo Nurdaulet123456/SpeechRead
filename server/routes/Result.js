@@ -6,6 +6,7 @@ const { Result } = require('../models/results');
 router.post('/' , async (req, res) => {
 
  const newPost = new Result({
+    user_id: req.body.user_id,
     words: req.body.words,
     page: req.body.page,
     racer: req.body.racer,

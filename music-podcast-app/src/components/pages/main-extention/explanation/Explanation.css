@@ -1,5 +1,6 @@
 .explanation {
     width: 100%;
+    overflow: hidden;
     padding-top: 11rem;
     padding-bottom: 7rem;
 }
@@ -34,4 +35,46 @@
 
 .explanation__btn {
     font-weight: bold;
+}
+
+@media(max-width: 991px) {
+    .explanation__inner {
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width: 477px) {
+    .explanation__inner {
+        display: block;
+    }
+
+    .explanation__content > h3 {
+        color: var(--color-explanation-page-text-color);
+        font-size: 2.4rem;
+        margin-bottom: .8rem;
+        letter-spacing: -0.05em;
+        text-align: center;
+    }
+    
+    .explanation__content > p {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.5rem;    
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .check {
+        text-align: center;
+    }
+}
+
+@media(max-width: 300px) {
+    .explanation__content > h3 {
+        font-size: 2rem;
+    }
+    
+    .explanation__content > p {
+        font-size: 1.3rem;    
+    }
 }

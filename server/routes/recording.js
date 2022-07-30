@@ -7,6 +7,7 @@ const { Recording } = require('../models/recording');
 router.post('/', async (req, res) => {
     try {
         const newRecording = new Recording({
+            user_id: req.body.user_id,
             record: req.body.record
         })
         const saveRecording = await newRecording.save();

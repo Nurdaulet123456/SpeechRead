@@ -3,6 +3,7 @@ import axios from "axios";
 import useResult from "../../hooks/useResult";
 
 let timeOutId = 0;
+let user = JSON.parse(localStorage.getItem("user-info"));
 const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
   const [countdownTime, setCountdownTime] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
@@ -15,14 +16,19 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
 
   const { w, p, r } = useResult(note);
 
+
   let result = {
+    user_id: user && user._id,
     words: w,
     page: p,
     racer: r,
     date: new Date().toDateString().split(" ").slice(1, 3).join(" "),
   };
 
+ 
+
   let record = {
+    user_id: user && user._id,
     record: w
   };
 

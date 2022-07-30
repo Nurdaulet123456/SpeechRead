@@ -20,6 +20,7 @@ video {
 }
 
 .content {
+    width: 100%;
     text-align: center;
 
     position: absolute;
@@ -68,4 +69,54 @@ video {
 
 .get-started:hover {
     background-color: var(--color-hover-bg);
+}
+
+@media(max-width: 767px) {
+    .main__title {
+        font-size: 4rem;
+    }
+
+    .content > p {
+        font-size: 1.6rem;
+    }
+}
+
+@media(max-width: 575px) {
+    .main__title {
+        font-size: 3rem;
+    }
+
+    .content > p {
+        font-size: 1.4rem;
+    }
+}
+
+@media(max-width: 391px) {
+    .main__title {
+        font-size: 2.5rem;
+    }
+
+    .content > p {
+        font-size: 1.2rem;
+    }
+
+    .get-started {
+        width: 40%;
+        font-size: 1.3rem;
+    }
+}
+
+@media(max-width: 299px) {
+    .main__title {
+        font-size: 2rem;
+    }
+
+    .content > p {
+        font-size: 1rem;
+    }
+
+    .get-started {
+        width: 40%;
+        font-size: 1rem;
+    }
 }

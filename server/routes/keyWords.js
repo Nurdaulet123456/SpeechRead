@@ -6,6 +6,7 @@ const { Key } = require('../models/keywords');
 router.post('/', async (req, res) => {
     try {
         const newKeyWords = new Key({
+            user_id: req.body.user_id,
             keyWords: req.body.keyWords,
             data: req.body.data,
         })

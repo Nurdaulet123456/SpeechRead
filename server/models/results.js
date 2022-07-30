@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const resultSchema = new mongoose.Schema({
+    user_id: {type: String},
     words: {type: Number},
     page: {type: Number},
     racer: {type: String},

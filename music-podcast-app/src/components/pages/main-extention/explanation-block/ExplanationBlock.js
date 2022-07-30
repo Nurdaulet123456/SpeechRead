@@ -40,7 +40,7 @@ const ExplanationBlock = () => {
                 </div>
               </div>
               <div className="content__img">
-                <img src={Timer} alt="" width={400} />
+                <img className='img' src={Timer} alt="" width={400} />
               </div>
             </div>
 
@@ -73,7 +73,7 @@ const ExplanationBlock = () => {
                 </div>
               </div>
               <div className="content__img">
-                <img src={StopWatch} alt="" width={400} />
+                <img className='img' src={StopWatch} alt="" width={400} />
               </div>
             </div>
 
@@ -105,7 +105,7 @@ const ExplanationBlock = () => {
                 </div>
               </div>
               <div className="content__img">
-                <img src={Translate} alt="" width={400} />
+                <img className='img' src={Translate} alt="" width={400} />
               </div>
             </div>
           </div>

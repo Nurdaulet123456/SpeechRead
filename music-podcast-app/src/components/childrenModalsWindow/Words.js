@@ -8,9 +8,10 @@ const style = {
   fontWeight: "bold",
   color: "#9a9a9a",
 };
-
+let user = JSON.parse(localStorage.getItem("user-info"));
 const Words = ({ isNote }) => {
   let note = {
+    user_id: user && user._id,
     keyWords: isNote.split(" "),
     data: new Date().getHours() + ":" + new Date().getMinutes(),
   };
