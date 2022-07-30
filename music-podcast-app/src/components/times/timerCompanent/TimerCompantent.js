@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import useResult from "../../hooks/useResult";
+import Servers from "../../../servers/Servers";
+import useResult from "../../hooks/Result";
 
 let timeOutId = 0;
 let user = JSON.parse(localStorage.getItem("user-info"));
+
+const {createResultAndKeys} = Servers()
 const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
   const [countdownTime, setCountdownTime] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
@@ -16,7 +18,6 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
 
   const { w, p, r } = useResult(note);
 
-
   let result = {
     user_id: user && user._id,
     words: w,
@@ -25,27 +26,15 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     date: new Date().toDateString().split(" ").slice(1, 3).join(" "),
   };
 
- 
-
   let record = {
     user_id: user && user._id,
     record: w
   };
 
   const handleSubmitResult = async () => {
-    try {
-      const url = "http://localhost:8080/api/result";
-      const recordurl = 'http://localhost:8080/api/records'
-      const { data: res } = await axios.post(url, result);
-      const { data: recording } = await axios.post(recordurl, record);
-      console.log(res);
-      console.log(recording);
-    } catch (error) {
-        console.log(error);
-    }
+      createResultAndKeys('http://localhost:8080/api/result', result)
+      createResultAndKeys('http://localhost:8080/api/records', record)
   };
-
-  // !
 
   // ! Calculate Timer
   
@@ -76,6 +65,7 @@ const TimerComponent = ({ timerData, stop, open, note, stopCountdown }) => {
     open();
     handleSubmitResult();
   };
+
   useEffect(() => {
     let expectedTime = new Date().getTime();
     let { hours, minutes, seconds } = timerData;

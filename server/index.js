@@ -12,7 +12,7 @@ const recording = require('./routes/recording');
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({extended: true}));
 app.use(cors());
 
 // DataBase

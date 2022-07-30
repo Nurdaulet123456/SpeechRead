@@ -4,7 +4,7 @@ import "./Translate.css";
 
 // ? import othres files
 import { Helmet } from "react-helmet";
-import useTranslate from "../../hooks/useTranslate";
+import useTranslate from "../../hooks/Translate";
 
 const Translate = () => {
   const { option, setFrom, setInput, setTo, output, translate } =

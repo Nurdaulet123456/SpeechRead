@@ -1,7 +1,7 @@
 import React from "react";
 import Game from "../../Game/Game";
 import { Helmet } from "react-helmet";
-import useSpeech from "../../hooks/useSpeech";
+import useSpeech from "../../hooks/Speech";
 
 const Speech = () => {
   const { start, stop, handleListen, note, isListening } = useSpeech();

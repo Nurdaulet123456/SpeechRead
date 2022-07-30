@@ -1,5 +1,5 @@
 import React from "react";
-import useStopWatch from "../hooks/useStopWatch";
+import StopWatch from "../hooks/StopWatch";
 
 const StopWatchClock = ({
   timerIsOpen,
@@ -8,7 +8,7 @@ const StopWatchClock = ({
   startSpeech,
   isStopWatchResultOpen,
 }) => {
-  const { timer, setRunning, setTimer } = useStopWatch(
+  const { timer, setRunning, setTimer } = StopWatch(
     handleListening,
     startSpeech,
     stopSpeech,
