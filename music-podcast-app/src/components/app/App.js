@@ -17,7 +17,7 @@ function App() {
     onLoading();
     setTimeout(() => {
       onLoded();
-    }, 2000);
+    }, 1000);
   }, []);
 
   const onLoded = () => {
