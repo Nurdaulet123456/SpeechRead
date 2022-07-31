@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 // import mongoose from 'mongoose';
+const {User} = require('./models/user')
+const mongoose = require('mongoose');
 const con = require('./db')
 const userRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
@@ -9,11 +11,14 @@ const updateProfile = require('./routes/updateProfile')
 const Result = require('./routes/Result')
 const keyWords = require('./routes/keyWords')
 const recording = require('./routes/recording');
+const { request } = require('express');
 
 const app = express();
 
 app.use(express.json({extended: true}));
 app.use(cors());
+
+
 
 // DataBase
 con()
