@@ -121,3 +121,10 @@
 .header__link {
     color: black;
 }
+
+/* Logout */
+
+.logout_img {
+    border-radius: 50%;
+    cursor: pointer;
+}

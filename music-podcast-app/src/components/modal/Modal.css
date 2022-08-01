@@ -12,11 +12,22 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.modal.logout-modal {
+    padding-top: 70px;
+    background-color: transparent;
+}
+
 .modal__inner {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100%;
+}
+
+.logout-modal__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
 }
 
 .modal__content {
@@ -27,6 +38,14 @@
     position: relative;
 
     border-radius: 5px;
+}
+
+.logout-modal__content {
+    max-width: 260px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 
 .close__btn {
@@ -42,8 +61,17 @@
     transition: all .2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
+.logout_close-btn {
+    top: 10px;
+    right: 10px;
+}
+
 .close__btn:hover {
     transform: rotate(90deg);
+}
+
+.logout_close-btn:hover {
+    transform: none;
 }
 
 /* Resut Modal */

@@ -3,6 +3,7 @@ import "./Repo.css";
 
 // ? import other files
 import React, { useState, useEffect, useDeferredValue } from "react";
+import Spinner from "../../../../spinner/Spinner";
 import Servers from "../../../../../servers/Servers";
 
 const KeyWord = () => {
@@ -10,6 +11,7 @@ const KeyWord = () => {
   const [search, setSearch] = useState({
     searchTab: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const searchKey = useDeferredValue(search.searchTab)
   const {getAllResultAndKeys} = Servers();
@@ -19,9 +21,11 @@ const KeyWord = () => {
   }, []);
 
   const changeHandler = (event) => {
+    setIsLoading(true)
     setSearch({
       searchTab: event.target.value,
     });
+    setIsLoading(false)
   };
 
   const handleClickShowMore = () => {
@@ -41,10 +45,11 @@ const KeyWord = () => {
             placeholder="Find a word..."
             onChange={(event) => changeHandler(event)}
           />
-          <button className="button">Search</button>
         </div>
-
-        <div className="content__key">
+      {
+        isLoading ? (<Spinner />) :
+        (
+          <div className="content__key">
           {
             key
               .slice(0, numberOfKey)
@@ -66,6 +71,8 @@ const KeyWord = () => {
                 </div>
               ))}
         </div>
+        )
+      }
         <div className="button_block">
           <button className="button" onClick={() => handleClickShowMore()}>
             Show More

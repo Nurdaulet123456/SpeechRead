@@ -79,4 +79,22 @@ const ShowWords = ({ openKey, children, closeKey }) => {
   );
 };
 
-export { Modal, LoginModal, ProfileAndResult, ShowWords };
+const LogoutModal = ({ open, children, close }) => {
+  if (!open) return null;
+  return (
+    <>
+      <div className="modal logout-modal">
+        <div className="modal__inner logout-modal__inner">
+          <div className="modal__content logout-modal__content">
+            <button className="close__btn logout_close-btn" onClick={close}>
+              <img src={CloseImg} alt=""/>
+            </button>
+            {children}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export { Modal, LoginModal, ProfileAndResult, ShowWords, LogoutModal };

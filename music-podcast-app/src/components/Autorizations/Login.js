@@ -1,7 +1,7 @@
 import useAuth from "../hooks/useAuth";
 import "./Autorization.css";
 
-const Login = () => {
+export const Login = () => {
   const {data, error, handleChange, handleSubmit} = useAuth();
 
   return (
@@ -42,19 +42,3 @@ const Login = () => {
   );
 };
 
-const Logout = () => {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user-info");
-    window.location.reload();
-  };
-
-  return (
-    <>
-      <button className="nav__link" onClick={handleLogout}>
-        Выйти
-      </button>
-    </>
-  );
-};
-export { Login, Logout };

@@ -5,7 +5,7 @@ import "../../index.css";
 import { Modal, LoginModal } from "../modal/Modal";
 import { useState } from "react";
 import Register from "../Autorizations/Register";
-import { Login, Logout } from "../Autorizations/Login";
+import { Login } from "../Autorizations/Login";
 
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -29,9 +29,6 @@ const Header = () => {
             <div className="header__logo">
               <h2 className="header__title">CountWords</h2>
             </div>
-            {localStorage.getItem("token") ? (
-              <Logout />
-            ) : (
               <nav className="nav">
                 <button className="nav__link" onClick={() => setisOpen(true)}>
                   Регистрация
@@ -43,7 +40,6 @@ const Header = () => {
                   Войти
                 </button>
               </nav>
-            )}
           </div>
         </div>
       </div>

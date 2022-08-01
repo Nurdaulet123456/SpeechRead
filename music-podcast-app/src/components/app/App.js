@@ -8,6 +8,7 @@ import {Main, Speech, Profile, Translate, EditProfile, Extention} from '../pages
 import PrivateRoutes from "../../utils/PrivateRoutes";
 import ErrorMessage from "../Page-404/Page404";
 import Spinner from "../spinner/Spinner";
+import Logout from "../header/Logout";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -32,7 +33,6 @@ function App() {
   const content = !loading ? <Contents /> : null;
   return (
     <>
-    <Header />
       {spinner}
       {content}
     </>
@@ -43,6 +43,13 @@ const Contents = () => {
   return (
     <>
       <Router>
+        {
+          localStorage.getItem('token') ? (
+            <Logout />
+          ) : (
+            <Header />
+          )
+        }
         <Switch>
           <Route exact path="/">
             <Main />
