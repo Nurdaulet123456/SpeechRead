@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Servers from "../../../servers/Servers";
-import useResult from "../../hooks/Result";
+import useResult from "../../../helper/Result";
 
 let timeOutId = 0;
 let user = JSON.parse(localStorage.getItem("user-info"));

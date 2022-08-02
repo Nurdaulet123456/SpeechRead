@@ -3,29 +3,27 @@ import "./Repo.css";
 
 // ? import other files
 import React, { useState, useEffect, useDeferredValue } from "react";
-import Spinner from "../../../../spinner/Spinner";
-import Servers from "../../../../../servers/Servers";
+import { useHttp } from "../../../../hooks/http.hooks";
 
 const KeyWord = () => {
   const [key, setKey] = useState([]);
   const [search, setSearch] = useState({
     searchTab: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
+  const { request, loading } = useHttp();
   const [showMore, setShowMore] = useState(false);
-  const searchKey = useDeferredValue(search.searchTab)
-  const {getAllResultAndKeys} = Servers();
-  
+  const searchKey = useDeferredValue(search.searchTab);
+
   useEffect(() => {
-    getAllResultAndKeys('http://localhost:8080/api/keywords', setKey)
-  }, []);
+    request("http://localhost:8080/api/keywords", "GET", null).then((data) =>
+      setKey([...data])
+    );
+  }, [request]);
 
   const changeHandler = (event) => {
-    setIsLoading(true)
     setSearch({
       searchTab: event.target.value,
     });
-    setIsLoading(false)
   };
 
   const handleClickShowMore = () => {
@@ -46,18 +44,16 @@ const KeyWord = () => {
             onChange={(event) => changeHandler(event)}
           />
         </div>
-      {
-        isLoading ? (<Spinner />) :
-        (
+        {loading ? (
+          <p className="loading">Loading...</p>
+        ) : (
           <div className="content__key">
-          {
-            key
+            {key
               .slice(0, numberOfKey)
               ?.filter(
                 (i) =>
-                  i.keyWords
-                    ?.toLowerCase()
-                    .includes(searchKey.toLowerCase()) || ""
+                  i.keyWords?.toLowerCase().includes(searchKey.toLowerCase()) ||
+                  ""
               )
               ?.map((item, id) => (
                 <div className="key__date" key={id}>
@@ -70,9 +66,8 @@ const KeyWord = () => {
                   </div>
                 </div>
               ))}
-        </div>
-        )
-      }
+          </div>
+        )}
         <div className="button_block">
           <button className="button" onClick={() => handleClickShowMore()}>
             Show More

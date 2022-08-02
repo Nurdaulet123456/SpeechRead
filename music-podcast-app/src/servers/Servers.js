@@ -19,7 +19,7 @@ const Servers = () => {
 
   const getAllResultAndKeys = async (url, setResult, setError) => {
     try {
-      axios.get(url).then((res) => setResult(res.data));
+      await axios.get(url).then((res) => setResult(res.data));
     } catch (error) {
       if (
         error.response &&

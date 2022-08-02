@@ -1,11 +1,33 @@
 import "./Edit.Profile.css";
 
-import React from "react";
+import React, {useState} from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { useHttp } from "../../../hooks/http.hooks";
 
+let user = JSON.parse(localStorage.getItem("user-info"));
 const EditProfile = () => {
-  let user = JSON.parse(localStorage.getItem("user-info"));
+  const [editUser, setEditUser] = useState({
+    _id: user._id,
+    name: '',
+    username: '',
+    email: '',
+  })
+  const {request} = useHttp()
+
+  const changeUserHandler = ({ currentTarget: input }) => {
+    setEditUser({
+      ...editUser,
+      [input.name]: input.value
+    })
+  }
+
+  const getUserUpdate = async (e) => {
+    e.preventDefault()
+    const form = await request('http://localhost:8080/api/edit', 'POST', {...editUser});
+    console.log(form)
+  }
+
   return (
     <>
       <Helmet>
@@ -15,6 +37,7 @@ const EditProfile = () => {
         <div className="container">
           <div className="edit">
             <div className="edit-profile__btn">
+
               <Link
                 className="button edit__button"
                 type="submit"
@@ -23,15 +46,18 @@ const EditProfile = () => {
                 Go to profile
               </Link>
             </div>
-            <form className="form">
+            <form className="form" onSubmit={getUserUpdate}>
               <div className="input__form">
                 <div className="blocks">
                   <input
                     className="input"
                     type="text"
                     name="name"
+                    value={editUser.name}
+                    onChange={changeUserHandler}
                     placeholder="Your Name"
                   />
+                  <input type="hidden" name="_id" value={editUser._id}/>
                 </div>
 
                 <div className="blocks">
@@ -39,6 +65,8 @@ const EditProfile = () => {
                     className="input"
                     type="text"
                     name="username"
+                    value={editUser.username}
+                    onChange={changeUserHandler}
                     placeholder="Enter your username"
                   />
                 </div>
@@ -48,6 +76,8 @@ const EditProfile = () => {
                     className="input"
                     type="email"
                     name="email"
+                    value={editUser.email}
+                    onChange={changeUserHandler}
                     placeholder="Enter your email"
                   />
                 </div>
@@ -91,13 +121,13 @@ const EditProfile = () => {
                     id="file-input"
                     type="file"
                   />
-                  <label class="file-input__label" for="file-input">
+                  <label className="file-input__label" htmlFor="file-input">
                     <svg
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fas"
                       data-icon="upload"
-                      class="svg-inline--fa fa-upload fa-w-16"
+                      className="svg-inline--fa fa-upload fa-w-16"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 512"

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Result } = require('../models/results');
+const {User} = require('../models/user')
 
 // ! Create Result 
 
@@ -12,6 +13,7 @@ router.post('/' , async (req, res) => {
     racer: req.body.racer,
     date: req.body.date
  });
+
   try {
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
@@ -24,9 +26,17 @@ router.post('/' , async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-      let result = await Result.find();
+    let userId = User.findById({_id: req.params.id})
+      let result = await Result.find({user_id: userId});
 
-      res.status(200).json(result)
+      if (result) {
+        res.status(200).json(result)
+      } else {
+        res.status(400).send({
+          message: 'No Result'
+        })
+      }
+
   } catch (error) {
       res.status(500).json(error)
   }

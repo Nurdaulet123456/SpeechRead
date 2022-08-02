@@ -1,5 +1,5 @@
 import React from "react";
-import StopWatch from "../hooks/StopWatch";
+import StopWatch from "../../helper/StopWatch";
 
 const StopWatchClock = ({
   timerIsOpen,

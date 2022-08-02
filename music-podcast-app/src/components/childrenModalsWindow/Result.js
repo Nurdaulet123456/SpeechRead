@@ -1,5 +1,5 @@
 import React from "react";
-import useResult from "../hooks/Result";
+import useResult from "../../helper/Result";
 
 const Result = ({ note }) => {
   const { w, p, r } = useResult(note);

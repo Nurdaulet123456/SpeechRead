@@ -3,11 +3,23 @@ import "../../../../../index.css";
 import "./ProfileData.css";
 
 // ? import other files and hooks
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useHttp } from "../../../../hooks/http.hooks";
 import { Link } from "react-router-dom";
 
+let user = JSON.parse(localStorage.getItem("user-info"));
+
 const ProfileData = () => {
-  let user = JSON.parse(localStorage.getItem("user-info"));
+  const [id, setId] = useState([])
+  const {request} = useHttp()
+
+
+  useEffect(() => {
+    request('http://localhost:8080/api/edit', 'GET', null)
+    .then(data => setId([...data]))
+    console.log(id)
+  }, [request])
+
   return (
     <>
       <div className="profile__data">
@@ -26,17 +38,17 @@ const ProfileData = () => {
           <li>
             <h1 className="contact">
               <span className="name" itemProp="name">
-                {user && user.name}
+                {user._id && user.name}
               </span>
               <br />
               <span className="username" itemProp="username">
-                {user && user.username}
+                {user._id && user.username}
               </span>
             </h1>
           </li>
 
           <li>
-            <Link className="button profile__btn" to={"/edit"}>
+            <Link className="button profile__btn" to={`/edit/${user._id}`}>
               Edit Profile
             </Link>
           </li>
